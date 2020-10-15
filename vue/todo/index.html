@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <h1>To Do List</h1>
+
+    <div id="app">
+
+        <form class="add-form"
+            v-on:submit.prevent="doAdd">
+            <p>
+            リスト追加
+            </p>
+            <input type="text" ref="comment">
+            <button class="addButton" type="submit">・ 追加 ・</button>
+        </form>
+
+        <label v-for="label in options">
+            <input type="radio"
+            v-model="current"
+            v-bind:value="label.value">
+            {{ label.label }}
+        </label>
+
+        <a class="computedTodos">
+            {{ computedTodos.length }} 件を表示中
+        </a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="id">番号</th>
+                    <th class="comment">やることリスト</th>
+                    <th class="state">状態</th>
+                    <th class="button">-</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- <tr v-for="item in todos" v-bind:key="item.ID"> -->
+                <tr v-for="item in computedTodos"
+                    v-bind:key="item.ID">
+                    <th>{{ item.id }}</th>
+                    <td>{{ item.comment }}</td>
+                    <td class="state">
+                        <button
+                            class="stateButton"
+                            v-on:click="doChangeState(item)">
+                            {{ labels[item.state] }}
+                        </button>
+                    </td>
+                    <td class="button">
+                        <button class="deleteButton" v-on:click="doRemove(item)">
+                            削除
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                // localStorageから取得したリスト
+                todos: [],
+                options: [
+                    { value: -1, label: 'すべて'},
+                    { value: 0, label: '作業中'},
+                    { value: 1, label: '完了' }
+                    ],
+                    // 選択している options の value を記憶するためのデータ
+                    // 初期値を「-1」つまり「すべて」にする
+                current: -1
+            },
+            
+            computed: {
+                computedTodos: function() {
+                // データ current が -1 ならすべて
+                // それ以外なら current と state が一致するものだけに絞り込む
+                return this.todos.filter(function(el) {
+                    return this.current < 0 ? true : this.current === el.state
+                }, this)
+                },
+                labels() {
+                    return this.options.reduce(function(a, b) {
+                        return Object.assign(a, { [b.value]: b.label })
+                    }, {})
+                }
+            },
+
+            watch: {
+                // オプションを使う場合はオブジェクト形式にする
+                todos: {
+                    // 引数はウォッチしているプロパティの変更後の値
+                    handler: function(todos) {
+                        todoStorage.save(todos)
+                    },
+                    // deep オプションでネストしているデータも監視できる
+                    deep: true
+                }
+            },
+
+            created() {
+                this.todos = todoStorage.fetch()
+            },
+
+            methods: {
+                doAdd: function(event, value) {
+                    // ref で名前を付けておいた要素を参照
+                    var comment = this.$refs.comment
+                    if(!comment.value.length) {
+                        return
+                    }
+                    // { 新しいID, コメント, 作業状態 }
+                    // というオブジェクトを現在の todos リストへ push
+                    // 作業状態「state」はデフォルト「作業中=0」で作成
+                    this.todos.push({
+                        id: todoStorage.uid++,
+                        comment: comment.value,
+                        state: 0
+                    })
+                    comment.value = ''
+                },
+                doChangeState: function(item) {
+                    item.state = item.state ? 0 : 1
+                },
+                doRemove: function(item) {
+                    var index = this.todos.indexOf(item)
+                    this.todos.splice(index, 1)
+                }
+            },
+        })
+    </script>
+</body>
+</html>
