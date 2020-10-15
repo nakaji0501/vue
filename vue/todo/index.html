@@ -14,9 +14,9 @@
 
         <form class="add-form"
             v-on:submit.prevent="doAdd">
-            <p>
+            <a>
             リスト追加
-            </p>
+            </a>
             <input type="text" ref="comment">
             <button class="addButton" type="submit">・ 追加 ・</button>
         </form>
@@ -36,7 +36,7 @@
             <thead>
                 <tr>
                     <th class="id">番号</th>
-                    <th class="comment">やることリスト</th>
+                    <th class="comment">リスト</th>
                     <th class="state">状態</th>
                     <th class="button">-</th>
                 </tr>
@@ -57,7 +57,7 @@
                     </td>
                     <td class="button">
                         <button class="deleteButton" v-on:click="doRemove(item)">
-                            削除
+                            X
                         </button>
                     </td>
                 </tr>
