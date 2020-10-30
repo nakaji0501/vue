@@ -15,13 +15,14 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 // use header components
 import { faAddressCard, faFileCode, faCheckCircle, faDesktop, } from '@fortawesome/free-solid-svg-icons'
 // use top components
-import { faUserCircle, faMapMarkerAlt, faCode, faLaptopCode, } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faMapMarkerAlt, faCode, faLaptopCode, faLightbulb, faExternalLinkAlt,  } from '@fortawesome/free-solid-svg-icons'
 
 // brandsの中で何を使うかをキャメルケースで記載
-import { faTwitterSquare, } from "@fortawesome/free-brands-svg-icons"
-// use profile components
-import { faHtml5, faCss3, faJs, faVuejs, faPhp, faGithub, faBootstrap,  } from '@fortawesome/free-brands-svg-icons'
-// use top components
+// use footer components
+import { faTwitterSquare, faGithub, } from "@fortawesome/free-brands-svg-icons"
+// use profile & skills components
+import { faHtml5, faCss3, faJs, faVuejs, faPhp, faBootstrap, faSass, } from '@fortawesome/free-brands-svg-icons'
+// use top & profile components
 import { faWordpress, } from '@fortawesome/free-brands-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -29,16 +30,25 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // 上記で記載したアイコン名をLibraryに追加
 // solid, brands関係なしでOK。
-library.add(faAddressCard, faTwitterSquare, faFileCode, faUserCircle,
+library.add(faAddressCard, faTwitterSquare, faFileCode, faUser, faLightbulb, faExternalLinkAlt, 
   faCheckCircle, faMapMarkerAlt, faDesktop, faCode, faLaptopCode, faWordpress,
-  faHtml5, faCss3, faJs, faVuejs, faPhp, faGithub, faBootstrap,faArrowUp
+  faHtml5, faCss3, faJs, faVuejs, faPhp, faGithub, faBootstrap,faArrowUp,faSass
   )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // global
-Vue.component('next-button', {
-  template: '<p>nextButton</p>'
+Vue.component('header-nav', {
+  template: '<p>{{ message }}</p>',
+  data: function() {
+    return {
+      message: 'test',
+      selectBtn: {
+        color: 'red',
+        backgroundColor: 'green,'
+      }
+    }
+  },
 })
 
 Vue.config.productionTip = false

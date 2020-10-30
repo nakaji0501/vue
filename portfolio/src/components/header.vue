@@ -20,7 +20,8 @@
       <li
       v-for="(item, index) in lists"
       :key="index"
-      class="item">
+      class="item"
+      >
       <router-link
       :to=item.path
       >
@@ -33,10 +34,12 @@
           style='color: #fff'
           />
         </p>
-        <p class="item_text">
+        <p class="item_text" >
           {{ item.title }}
         </p>
+
         <more-button />
+
       </router-link>
       </li>
 
@@ -59,6 +62,7 @@ export default {
   },
   data() {
     return {
+      isActive: false,
       anime2: true,
       autoplay: true,
       lists: [
@@ -66,10 +70,10 @@ export default {
         id: 1, text: 'TOPページです。', subText: '制作物の紹介と私に出来る業務・私自身についてご紹介します。' },
         { title: 'profile', path: '/profile', prefix: 'fas', icon: 'address-card', size: '2x',
         id: 2, text: 'Profileページです。', subText: '私のプログラミング学習の経過や学習している言語などをご紹介します。' },
-        { title: 'skills', path: '/skills', prefix: 'fas', icon: 'file-code', size: '2x',
-        id: 3, text: 'Skillページです。', subText: '学習したプログラミング言語でどんなことが出来るかを紹介します。' },
         { title: 'works', path: '/works', prefix: 'fas', icon: 'check-circle', size: '2x',
-        id: 4, text: 'Serviceページです。', subText: '過去の制作物をご紹介します。'},
+        id: 3, text: 'Serviceページです。', subText: '過去の制作物をご紹介します。'},
+        { title: 'contact', path: '/contact', prefix: 'fas', icon: 'file-code', size: '2x',
+        id: 4, text: 'contactページです。', subText: 'お気軽にお問い合わせください。' },
       ],
     }
   },
@@ -77,6 +81,9 @@ export default {
 </script>
 
 <style scoped>
+.active {
+  background-color: lightgray;
+}
 .vueHeader {
   position: relative;
   color: #fff;

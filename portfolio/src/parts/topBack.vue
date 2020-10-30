@@ -22,6 +22,7 @@ export default {
     position: fixed;
     right: 10%;
     bottom: 14%;
+    z-index: 200;
 }
 .text {
     transform: rotate(90deg);

@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import top from '../components/top.vue'
-import profile from '../components/profile.vue'
-import skills from '../components/skills.vue'
-import works from '../components/works.vue'
+import top from '../components/top'
+import profile from '../components/profile'
+import works from '../components/works'
+import contact from '../components/contact'
 
 Vue.use(Router)
 
@@ -20,14 +20,14 @@ export default new Router({
       component: profile,
     },
     {
-      path: '/skills',
-      name: 'skills',
-      component: skills,
-    },
-    {
       path: '/works',
       name: 'works',
       component: works,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: contact,
     },
   ]
 })

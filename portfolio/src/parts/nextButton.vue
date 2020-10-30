@@ -1,20 +1,22 @@
 <template>
-    <div
-	class="nextButton"
-	>
-        <a class="btn">{{ lists[1].text }}</a>
+    <div class="nextButton">
+        <a class="btn">
+      {{ text }}
+        </a>
     </div>
 </template>
 
 <script>
 export default {
 	name: 'nextButton',
+  props: {
+    'text': {
+      type: String,
+      default: 'BUTTON'
+    }
+  },
 	data() {
 		return {
-			lists: [
-				{ id: '1', text: '詳細はこちらへ'},
-				{ id: '2', text: '過去の制作物はこちら'},
-			]
 		}
 	}
 }

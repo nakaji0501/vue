@@ -28,6 +28,7 @@ export default {
     margin-top: 100px;
     position: relative;
     height: 120px;
+    z-index: 80;
 }
 .footer_bgc {
     position: absolute;

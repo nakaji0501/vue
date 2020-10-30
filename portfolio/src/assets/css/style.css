@@ -1,3 +1,11 @@
+/* common */
+.boxSize {
+    margin: 80px auto;
+}
+.tit {
+    padding: 64px 0;
+    font-size: 3em;
+}
 li {
     list-style: none;
 }
