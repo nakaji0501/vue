@@ -1,0 +1,91 @@
+.global-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapper-left {
+  flex-basis: 30%;
+  background-color: lightblue;
+  padding: 24px 16px;
+}
+.wrapper-right {
+  flex-basis: 70%;
+  padding: 24px 16px;
+}
+
+// .wrapper-left
+.about {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about_img img {
+  border-radius: 50%;
+  border: 2px solid black;
+}
+.about_name {
+  margin: 8px auto 24px;
+}
+.about_name h2 {
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+.about_name p {
+  font-size: 0.8em;
+}
+.about_title h3 {
+  font-size: 1.5em;
+}
+.about_title p {
+  font-size: 0.8em;
+}
+.about_text span {
+  background-color: yellow;
+  font-weight: bold;
+}
+.decoLine {
+  content: '';
+  display: inline-block;
+  width: 95%;
+  height: 2px;
+  background-color: black;
+  margin: 16px auto;
+}
+.interests {
+  text-align: center;
+}
+.interests_title h3 {
+  font-size: 1.5em;
+}
+.interests_title p {
+  font-size: 0.8em;
+}
+.interests_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.interests_list li {
+  flex-basis: 32%;
+  margin-bottom: 8px;
+}
+
+// .wrapper-right
+.jobCareer {
+  padding: 0 16px;
+}
+.jobCareer_title {
+  display: flex;
+  align-items: baseline;
+}
+.jobCareer_title i {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 4px;
+}
+.jobCareer_title h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 16px;
+}
+.jobCareer_title a {
+  margin-left: 8px;
+  font-size: 0.8em;
+}

@@ -1,0 +1,158 @@
+@import url(/Users/takumi/github/rirekisyo/css/setting/reset.css);
+img {
+  height: 100%;
+  width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 1.4em;
+}
+
+.global-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+.wrapper-left {
+  -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%;
+  background-color: lightblue;
+  padding: 24px 16px;
+}
+
+.wrapper-right {
+  -webkit-flex-basis: 70%;
+      -ms-flex-preferred-size: 70%;
+          flex-basis: 70%;
+  padding: 24px 16px;
+}
+
+.about {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about_img img {
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.about_name {
+  margin: 8px auto 24px;
+}
+
+.about_name h2 {
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+
+.about_name p {
+  font-size: 0.8em;
+}
+
+.about_title h3 {
+  font-size: 1.5em;
+}
+
+.about_title p {
+  font-size: 0.8em;
+}
+
+.about_text span {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.decoLine {
+  content: '';
+  display: inline-block;
+  width: 95%;
+  height: 2px;
+  background-color: black;
+  margin: 16px auto;
+}
+
+.interests {
+  text-align: center;
+}
+
+.interests_title h3 {
+  font-size: 1.5em;
+}
+
+.interests_title p {
+  font-size: 0.8em;
+}
+
+.interests_list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.interests_list li {
+  -webkit-flex-basis: 32%;
+      -ms-flex-preferred-size: 32%;
+          flex-basis: 32%;
+  margin-bottom: 8px;
+}
+
+.jobCareer {
+  padding: 0 16px;
+}
+
+.jobCareer_title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.jobCareer_title i {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.jobCareer_title h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.jobCareer_title a {
+  margin-left: 8px;
+  font-size: 0.8em;
+}
+
+.jobCareer_table {
+  padding: 16px;
+}
+
+td {
+  background-color: red;
+}
+/*# sourceMappingURL=style.css.map */
