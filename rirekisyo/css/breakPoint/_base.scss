@@ -8,84 +8,108 @@
   padding: 24px 16px;
 }
 .wrapper-right {
-  flex-basis: 70%;
+  flex-basis: 60%;
   padding: 24px 16px;
+  position: relative;
 }
 
 // .wrapper-left
 .about {
   text-align: center;
-  margin-bottom: 40px;
+  &_img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    & img {
+      border-radius: 50%;
+      border: 2px solid black;
+    }
+  }
+  &_name {
+    margin: 32px auto 64px;
+    & h2 {
+      font-size: 2.5em;
+      margin-bottom: 4px;
+    }
+  }
+  &_title {
+    margin-bottom: 32px;
+  }
+  &_text {
+    width: 90%;
+    margin: 0 auto;
+    & p {
+    line-height: 2em;
+    }
+  }
+  &_text span {
+    background-color: yellow;
+    font-weight: bold;
+  }
 }
-.about_img img {
-  border-radius: 50%;
-  border: 2px solid black;
+.personality {
+  &_title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &_list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    & li {
+      flex-basis: 30%;
+      margin-bottom: 24px;
+    }
+  }
 }
-.about_name {
-  margin: 8px auto 24px;
-}
-.about_name h2 {
-  font-size: 1.5em;
-  margin-bottom: 4px;
-}
-.about_name p {
-  font-size: 0.8em;
-}
-.about_title h3 {
-  font-size: 1.5em;
-}
-.about_title p {
-  font-size: 0.8em;
-}
-.about_text span {
-  background-color: yellow;
-  font-weight: bold;
-}
-.decoLine {
-  content: '';
-  display: inline-block;
-  width: 95%;
-  height: 2px;
-  background-color: black;
-  margin: 16px auto;
-}
-.interests {
+.skill {
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
-}
-.interests_title h3 {
-  font-size: 1.5em;
-}
-.interests_title p {
-  font-size: 0.8em;
-}
-.interests_list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.interests_list li {
-  flex-basis: 32%;
-  margin-bottom: 8px;
+  &_level {
+    &-item {
+      margin-bottom: 16px;
+    }
+  }
 }
 
 // .wrapper-right
-.jobCareer {
-  padding: 0 16px;
+// table.css
+// comment.css
+
+.myself {
+  margin-top: 40px;
+  &_title {
+    margin-bottom: 16px;
+  }
+  &_text {
+    width: 90%;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    & h3 {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+      width: 70%;
+      padding: 8px 16px;
+      background-color: lightyellow
+    }
+  }
 }
-.jobCareer_title {
-  display: flex;
-  align-items: baseline;
-}
-.jobCareer_title i {
-  border: 2px solid black;
-  border-radius: 50%;
-  padding: 4px;
-}
-.jobCareer_title h2 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-left: 16px;
-}
-.jobCareer_title a {
-  margin-left: 8px;
-  font-size: 0.8em;
+
+.strength {
+  margin-top: 40px;
+  &_title {
+    margin-bottom: 16px;
+  }
+  &_text {
+    width: 90%;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    & h3 {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+    }
+  }
 }

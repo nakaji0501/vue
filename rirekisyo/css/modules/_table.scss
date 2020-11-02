@@ -1,6 +1,30 @@
 .jobCareer_table {
+    margin-top: 16px;
     padding: 16px;
 }
-td {
-    background-color: red;
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table th,
+table td {
+    padding: 8px 0;
+    text-align: left;
+    line-height: 1.5em;
+}
+.date {
+    width: 20%;
+}
+.bb {
+    border-bottom: 1px dashed #000;
+}
+.centerSpace {
+    height: 32px;
+}
+.fujita {
+    background-color: #eee;
+}
+.kato {
+    background: #eee;
 }

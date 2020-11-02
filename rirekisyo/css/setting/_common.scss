@@ -12,3 +12,35 @@ li {
 p {
     line-height: 1.4em;
 }
+.subTit {
+    margin-bottom: 16px;
+    & h3 {
+        font-size: 2em;
+    }
+}
+.decoLine {
+    content: '';
+    display: inline-block;
+    width: 95%;
+    height: 2px;
+    background-color: black;
+    margin: 24px auto 40px;
+  }
+.index {
+    display: flex;
+    align-items: baseline;
+    & i {
+      border: 1px solid black;
+      border-radius: 50%;
+      padding: 8px;
+    }
+    & h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+    & a {
+      margin-left: 8px;
+      font-size: 0.8em;
+      }
+  }
