@@ -1,0 +1,75 @@
+html body * {
+    font-size: 14px;
+}
+.global-wrapper {
+    flex-wrap: wrap;
+}
+.wrapper-left {
+    flex-basis: 35%;
+    padding: 24px 0;
+}
+  .wrapper-right {
+    flex-basis: 65%;
+    padding: 24px 0;
+}
+.subTit {
+    font-size: 0.8em;
+}
+.about {
+    &_img {
+        width: 180px;
+        height: 180px;
+    }
+}
+.personality {
+    &_list {
+        width: 100%;
+        text-align: center;
+        & li {
+            font-size: 0.8em;
+        }
+    }
+}
+
+table {
+    width: 100%;
+}
+
+.index {
+    margin-left: 16px;
+}
+
+.strength {
+    &_text {
+        width: 100%;
+        & h3 {
+            width: 90%;
+        }
+        & p {
+            width: 90%;
+        }
+    }
+}
+
+.comment-style {
+    position: static;
+    flex-basis: 25%;
+    position: relative;
+}
+.comment-wrapper {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px 10%;
+    background-color: #eee;
+}
+.comment1,
+.comment2,
+.comment3,
+.comment4,
+.comment5
+{
+    top: 0;
+    right: 0;
+}

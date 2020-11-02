@@ -1,6 +1,14 @@
 
 @import './setting/reset.css';
 @import './setting/common';
-@import './breakPoint/base';
+@import './breakPoint/desktop';
 @import './modules/table';
 @import './modules/comment';
+
+@media (max-width: 960px) {
+    @import './breakPoint/tablet';
+}
+
+@media (max-width: 568px) {
+    @import './breakPoint/mobile';
+}

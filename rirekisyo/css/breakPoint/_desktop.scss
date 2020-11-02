@@ -1,6 +1,7 @@
 .global-wrapper {
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 .wrapper-left {
   flex-basis: 30%;
@@ -8,7 +9,7 @@
   padding: 24px 16px;
 }
 .wrapper-right {
-  flex-basis: 60%;
+  flex-basis: 70%;
   padding: 24px 16px;
   position: relative;
 }
@@ -65,8 +66,8 @@
   }
 }
 .skill {
-  width: 80%;
-  margin: 0 auto;
+  // width: 80%;
+  // margin: 0 auto;
   text-align: center;
   &_level {
     &-item {
@@ -75,41 +76,50 @@
   }
 }
 
+.portfolio {
+  margin-top: 48px;
+  text-align: center;
+  & a {
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 7px 10px 10px 10px;
+    text-decoration: none;
+    color: #333;
+    background: gold;
+    transition: 1s;
+    border-radius: 8px;
+    & span {
+      border-bottom: 2px solid #fff;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
 // .wrapper-right
 // table.css
 // comment.css
 
-.myself {
+.strength {
   margin-top: 40px;
-  &_title {
-    margin-bottom: 16px;
-  }
   &_text {
     width: 90%;
-    margin-bottom: 16px;
+    margin: 24px 0;
     padding-left: 16px;
     & h3 {
       font-size: 1.3em;
       margin-bottom: 8px;
       width: 70%;
-      padding: 8px 16px;
+      padding: 12px 16px;
       background-color: lightyellow
     }
-  }
-}
-
-.strength {
-  margin-top: 40px;
-  &_title {
-    margin-bottom: 16px;
-  }
-  &_text {
-    width: 90%;
-    margin-bottom: 16px;
-    padding-left: 16px;
-    & h3 {
-      font-size: 1.3em;
-      margin-bottom: 8px;
+    & p {
+      padding-left: 32px;
+      width: 70%;
+      line-height: 1.5em;
     }
   }
 }

@@ -1,4 +1,8 @@
 @import url(/Users/takumi/github/rirekisyo/css/setting/reset.css);
+html body * {
+  font-size: 20px;
+}
+
 img {
   height: 100%;
   width: 100%;
@@ -18,7 +22,7 @@ p {
 }
 
 .subTit {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .subTit h3 {
@@ -70,6 +74,7 @@ p {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
+  position: relative;
 }
 
 .wrapper-left {
@@ -81,9 +86,9 @@ p {
 }
 
 .wrapper-right {
-  -webkit-flex-basis: 60%;
-      -ms-flex-preferred-size: 60%;
-          flex-basis: 60%;
+  -webkit-flex-basis: 70%;
+      -ms-flex-preferred-size: 70%;
+          flex-basis: 70%;
   padding: 24px 16px;
   position: relative;
 }
@@ -158,8 +163,6 @@ p {
 }
 
 .skill {
-  width: 80%;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -167,45 +170,55 @@ p {
   margin-bottom: 16px;
 }
 
-.myself {
-  margin-top: 40px;
+.portfolio {
+  margin-top: 48px;
+  text-align: center;
 }
 
-.myself_title {
-  margin-bottom: 16px;
+.portfolio a {
+  font-size: 1.2em;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #333;
+  background: gold;
+  -webkit-transition: 1s;
+  transition: 1s;
+  border-radius: 8px;
 }
 
-.myself_text {
-  width: 90%;
-  margin-bottom: 16px;
-  padding-left: 16px;
+.portfolio a span {
+  border-bottom: 2px solid #fff;
 }
 
-.myself_text h3 {
-  font-size: 1.3em;
-  margin-bottom: 8px;
-  width: 70%;
-  padding: 8px 16px;
-  background-color: lightyellow;
+.portfolio a:hover {
+  color: #fff;
 }
 
 .strength {
   margin-top: 40px;
 }
 
-.strength_title {
-  margin-bottom: 16px;
-}
-
 .strength_text {
   width: 90%;
-  margin-bottom: 16px;
+  margin: 24px 0;
   padding-left: 16px;
 }
 
 .strength_text h3 {
   font-size: 1.3em;
   margin-bottom: 8px;
+  width: 70%;
+  padding: 12px 16px;
+  background-color: lightyellow;
+}
+
+.strength_text p {
+  padding-left: 32px;
+  width: 70%;
+  line-height: 1.5em;
 }
 
 .jobCareer_table {
@@ -276,16 +289,139 @@ table td {
 
 .comment1 {
   right: 3%;
-  top: 20%;
+  top: 10%;
 }
 
 .comment2 {
   right: 3%;
-  top: 40%;
+  top: 23%;
 }
 
 .comment3 {
   right: 3%;
-  top: 65%;
+  top: 43%;
+}
+
+.comment4 {
+  right: 3%;
+  top: 70%;
+  border: 3px solid #333;
+}
+
+.comment4 span {
+  background: #333;
+  color: lightyellow;
+  border: 1px solid #333;
+}
+
+.comment5 {
+  right: 3%;
+  top: 85%;
+  border: 3px solid #333;
+}
+
+.comment5 span {
+  background: #333;
+  color: lightyellow;
+  border: 1px solid #333;
+}
+
+@media (max-width: 960px) {
+  html body * {
+    font-size: 14px;
+  }
+  .global-wrapper {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .wrapper-left {
+    -webkit-flex-basis: 35%;
+        -ms-flex-preferred-size: 35%;
+            flex-basis: 35%;
+    padding: 24px 0;
+  }
+  .wrapper-right {
+    -webkit-flex-basis: 65%;
+        -ms-flex-preferred-size: 65%;
+            flex-basis: 65%;
+    padding: 24px 0;
+  }
+  .subTit {
+    font-size: 0.8em;
+  }
+  .about_img {
+    width: 180px;
+    height: 180px;
+  }
+  .personality_list {
+    width: 100%;
+    text-align: center;
+  }
+  .personality_list li {
+    font-size: 0.8em;
+  }
+  table {
+    width: 100%;
+  }
+  .index {
+    margin-left: 16px;
+  }
+  .strength_text {
+    width: 100%;
+  }
+  .strength_text h3 {
+    width: 90%;
+  }
+  .strength_text p {
+    width: 90%;
+  }
+  .comment-style {
+    position: static;
+    -webkit-flex-basis: 25%;
+        -ms-flex-preferred-size: 25%;
+            flex-basis: 25%;
+    position: relative;
+  }
+  .comment-wrapper {
+    margin-top: 24px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    padding: 16px 10%;
+    background-color: #eee;
+  }
+  .comment1,
+  .comment2,
+  .comment3,
+  .comment4,
+  .comment5 {
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 568px) {
+  html body * {
+    font-size: 20px;
+  }
+  .wrapper-left {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+  }
+  .wrapper-right {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

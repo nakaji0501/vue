@@ -29,15 +29,37 @@
 
   .comment1 {
     right: 3%;
-    top: 20%;
+    top: 10%;
   }
 
   .comment2 {
     right: 3%;
-    top: 40%;
+    top: 23%;
   }
 
   .comment3 {
     right: 3%;
-    top: 65%;
+    top: 43%;
+  }
+
+  .comment4 {
+    right: 3%;
+    top: 70%;
+    border: 3px solid #333;
+    & span {
+      background: #333;
+      color: lightyellow;
+      border: 1px solid #333;
+    }
+  }
+
+  .comment5 {
+    right: 3%;
+    top: 85%;
+    border: 3px solid #333;
+    & span {
+      background: #333;
+      color: lightyellow;
+      border: 1px solid #333;
+    }
   }
