@@ -53,6 +53,8 @@ p {
   border: 1px solid black;
   border-radius: 50%;
   padding: 8px;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 
 .index h2 {
@@ -180,21 +182,17 @@ p {
   position: relative;
   display: inline-block;
   font-weight: bold;
-  padding: 7px 10px 10px 10px;
+  padding: 10px 10px;
   text-decoration: none;
-  color: #333;
-  background: gold;
+  background: darkgray;
   -webkit-transition: 1s;
   transition: 1s;
   border-radius: 8px;
-}
-
-.portfolio a span {
-  border-bottom: 2px solid #fff;
+  color: #fff;
 }
 
 .portfolio a:hover {
-  color: #fff;
+  background: #1414d3;
 }
 
 .strength {
@@ -202,7 +200,7 @@ p {
 }
 
 .strength_text {
-  width: 90%;
+  width: 100%;
   margin: 24px 0;
   padding-left: 16px;
 }
@@ -217,7 +215,7 @@ p {
 
 .strength_text p {
   padding-left: 32px;
-  width: 70%;
+  width: 65%;
   line-height: 1.5em;
 }
 
@@ -251,12 +249,13 @@ table td {
   height: 32px;
 }
 
-.fujita {
-  background-color: #eee;
-}
-
+.fujita,
 .kato {
   background: #eee;
+}
+
+table li {
+  list-style: decimal;
 }
 
 .comment-style {
@@ -326,7 +325,7 @@ table td {
   border: 1px solid #333;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1300px) {
   html body * {
     font-size: 14px;
   }
@@ -368,13 +367,14 @@ table td {
     margin-left: 16px;
   }
   .strength_text {
-    width: 100%;
+    width: 90%;
+    margin: 16px 0;
   }
   .strength_text h3 {
     width: 90%;
   }
   .strength_text p {
-    width: 90%;
+    width: 80%;
   }
   .comment-style {
     position: static;
@@ -384,7 +384,6 @@ table td {
     position: relative;
   }
   .comment-wrapper {
-    margin-top: 24px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -397,6 +396,7 @@ table td {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     padding: 16px 10%;
+    width: 100%;
     background-color: #eee;
   }
   .comment1,
@@ -411,7 +411,7 @@ table td {
 
 @media (max-width: 568px) {
   html body * {
-    font-size: 20px;
+    font-size: 18px;
   }
   .wrapper-left {
     -webkit-flex-basis: 100%;
@@ -422,6 +422,21 @@ table td {
     -webkit-flex-basis: 100%;
         -ms-flex-preferred-size: 100%;
             flex-basis: 100%;
+  }
+  .comment-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .comment-style {
+    width: 80%;
+    margin: 40px auto;
+  }
+  .strength_text {
+    width: 90%;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,20 @@
 html body * {
-    font-size: 20px;
+    font-size: 18px;
 }
 .wrapper-left {
     flex-basis: 100%;
 }
 .wrapper-right {
     flex-basis: 100%;
+}
+.comment-wrapper {
+    flex-direction: column;
+    width: 100%;
+}
+.comment-style {
+    width: 80%;
+    margin: 40px auto;
+}
+.strength_text {
+    width: 90%;
 }

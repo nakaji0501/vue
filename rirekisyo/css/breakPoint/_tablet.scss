@@ -41,12 +41,13 @@ table {
 
 .strength {
     &_text {
-        width: 100%;
+        width: 90%;
+        margin: 16px 0;
         & h3 {
             width: 90%;
         }
         & p {
-            width: 90%;
+            width: 80%;
         }
     }
 }
@@ -57,11 +58,11 @@ table {
     position: relative;
 }
 .comment-wrapper {
-    margin-top: 24px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 16px 10%;
+    width: 100%;
     background-color: #eee;
 }
 .comment1,

@@ -22,9 +22,10 @@ table td {
 .centerSpace {
     height: 32px;
 }
-.fujita {
-    background-color: #eee;
-}
+.fujita,
 .kato {
     background: #eee;
+}
+table li {
+    list-style: decimal;
 }

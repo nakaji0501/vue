@@ -5,7 +5,9 @@
 @import './modules/table';
 @import './modules/comment';
 
-@media (max-width: 960px) {
+// commentのみ1300からじゃないと崩れる
+// 他は960からで大丈夫だけど合わせている
+@media (max-width: 1300px) {
     @import './breakPoint/tablet';
 }
 

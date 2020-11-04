@@ -84,17 +84,14 @@
     position: relative;
     display: inline-block;
     font-weight: bold;
-    padding: 7px 10px 10px 10px;
+    padding: 10px 10px;
     text-decoration: none;
-    color: #333;
-    background: gold;
+    background: darkgray;
     transition: 1s;
     border-radius: 8px;
-    & span {
-      border-bottom: 2px solid #fff;
-    }
+    color: #fff;
     &:hover {
-      color: #fff;
+      background: rgb(20, 20, 211);
     }
   }
 }
@@ -106,7 +103,7 @@
 .strength {
   margin-top: 40px;
   &_text {
-    width: 90%;
+    width: 100%;
     margin: 24px 0;
     padding-left: 16px;
     & h3 {
@@ -118,7 +115,7 @@
     }
     & p {
       padding-left: 32px;
-      width: 70%;
+      width: 65%;
       line-height: 1.5em;
     }
   }
