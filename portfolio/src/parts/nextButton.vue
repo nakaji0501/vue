@@ -32,6 +32,7 @@ export default {
   color: #FFF;
   background-image: linear-gradient(45deg, rgb(11, 71, 139) 0%, #b0c9ff 100%);
   transition: .4s;
+  cursor: pointer;
 }
 
 .btn:hover {

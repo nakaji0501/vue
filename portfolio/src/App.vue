@@ -39,4 +39,7 @@ export default {
   opacity: 0;
   transform: translateX(100%);
 }
+.router-link-active {
+  color: red;
+}
 </style>

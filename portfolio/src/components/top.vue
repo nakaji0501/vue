@@ -48,9 +48,12 @@
           </div>
 
           <div class="about_deteailBtn">
+          <router-link
+          to="/profile">
             <next-button
             text="詳細はこちらへ"
             class="aboutBtn" />
+          </router-link>
           </div>
 
         </div>
@@ -75,10 +78,13 @@
       </div>
 
       <div class="works_deteailBtn">
+        <router-link
+        to="/works">
         <next-button
         text="過去の制作物はこちら"
         class="worksBtn"
         />
+        </router-link>
       </div>
 
     </div><!-- /works -->
@@ -142,7 +148,8 @@
       <div class="appeal_wrapper">
 
         <div class="appeal_title tit">
-          <h2>私の強み</h2>
+          <h2>STORENGTH</h2>
+          <p>私の強み</p>
         </div>
 
         <div class="appeal_contents">
@@ -178,6 +185,8 @@
 
     </div>
 
+    <div class="spaceArrow"><span></span></div>
+
     <!-- contact -->
     <contact />
 
@@ -198,7 +207,7 @@ export default {
 </script>
 
 <style scoped>
-/* .top */
+/* .message */
 .message {
   margin: 80px 0;
 }
@@ -208,6 +217,13 @@ export default {
 .message p {
   margin-bottom: 12px;
 }
+@media (max-width: 670px){
+  .message {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+}
 /* about */
 .about {
   background-color: lightgray;
@@ -215,17 +231,17 @@ export default {
 .about_contents{
   width: 70%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
 }
 .about_image {
   flex-basis: 30%;
-  width: 300px;
   height: 300px;
+  margin-top: 24px;
 }
 .about_image img {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
 }
 .about_inner {
@@ -237,6 +253,7 @@ export default {
 }
 .about_name {
   margin-bottom: 32px;
+  margin-left: 24px;
 }
 .about_text-icon {
   display: flex;
@@ -244,6 +261,7 @@ export default {
 .about_text > p {
   text-align: left;
   margin-bottom: 16px;
+  margin-left: 24px;
 }
 .about_deteailBtn {
   margin-top: 64px;
@@ -266,20 +284,25 @@ export default {
 }
 
 /* .works */
-.works {
-  padding-bottom: 40px;
-}
 .works_image {
   width: 50%;
+  height: 400px;
   margin: 0 auto;
   border: 2px solid black;
 }
 .works_image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .works_deteailBtn {
-  margin-top: 54px;
+  margin-top: 24px;
   position: relative;
+}
+@media (max-width: 670px){
+  .works_image {
+    width: 90%;
+  }
 }
 
 /* .service */
@@ -320,16 +343,24 @@ export default {
 .service_item {
   width: 80%;
   margin: 0 auto;
-  padding: 60px 16px 16px 16px;
+  padding: 60px 16px 32px 16px;
 }
 .service_item h3 {
   margin: 16px 0;
 }
+.service_item p {
+  line-height: 30px;
+}
 
 /* .service-media- */
 @media (max-width: 670px){
+.service {
+  padding: 0;
+}
 .service_contents {
   flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
 }
 .service_item {
   padding-bottom: 40px;
@@ -354,6 +385,9 @@ export default {
   width: 80%;
   margin: 0 auto;
 }
+.appeal_title p {
+  font-size: 1.5rem;
+}
 .appeal_contents {
   display: flex;
   justify-content: space-between;
@@ -361,22 +395,27 @@ export default {
 .appeal_content {
   flex-basis: 25%;
   background-color: lightgray;
-  padding: 40px 8px;
+  padding:64px 16px 40px 16px;
   clip-path: polygon(0 100%, 0 10%, 100% 0, 100% 90%);
 }
 .appeal_subtitle {
   display: flex;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .appeal_content h3 {
+  font-size: 1.3em;
   margin-left: 8px;
 }
 .appeal_content p {
   margin-bottom: 16px;
+  padding: 0 16px;
 }
 /* .appeal-media- */
 @media (max-width: 670px) {
+.appeal_wrapper {
+  width: 90%;
+}
 .appeal_contents {
   flex-direction: column;
 }
@@ -386,5 +425,20 @@ export default {
 .appeal_content:last-child {
   margin-bottom: 0;
 }
+}
+
+/* .spaceArrow */
+.spaceArrow {
+  display: block;
+  height: 300px;
+  position: relative;
+}
+span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 120%;
+  background: black;
 }
 </style>

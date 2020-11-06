@@ -1,6 +1,11 @@
 <template>
-    <div class="topBack">
-        <div class="text">
+    <transition name="btn">
+    <div class="topBack"
+    v-show="buttonHide"
+    @click="topBack"
+    >
+        <div class="text"
+        >
             <p>TOPへ</p>
         </div>
         <div class="icon">
@@ -9,11 +14,39 @@
             </p>
         </div>
     </div>
+    </transition>
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
-    name: 'topBack'
+    name: 'topBack',
+    data() {
+        return {
+            buttonHide: false,
+            scroll: 0
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.scrollWindow)
+    },
+    methods: {
+        topBack() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        },
+        scrollWindow() {
+            const top = 300
+            this.scroll = window.scrollY
+            if(top <= this.scroll) {
+                this.buttonHide = true
+            } else {
+                this.buttonHide = false
+            }
+        }
+    }
 }
 </script>
 
@@ -23,6 +56,7 @@ export default {
     right: 10%;
     bottom: 14%;
     z-index: 200;
+    cursor: pointer;
 }
 .text {
     transform: rotate(90deg);
@@ -40,5 +74,13 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+}
+.btn-enter-active,
+.btn-leave-active {
+    transition: opacity 1s;
+}
+.btn-enter,
+.btn-leave-to {
+    opacity: 0;
 }
 </style>

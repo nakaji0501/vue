@@ -1,7 +1,5 @@
 <template>
-    <div class="moreButton">
-        <a class="btn"></a>
-    </div>
+    <div class="moreButton"></div>
 </template>
 
 <script>
@@ -11,18 +9,8 @@ export default {
 </script>
 
 <style scoped>
-.btn{
-	list-style: none;
-	padding-left: 1.5rem;
-	position: relative;
-}
-.btn:before,
-.btn:after{
-	content: "";
-	display: block;
-	position: absolute;
-}
-.btn:after{
+.moreButton{
+	display: inline-block;
 	border: 8px solid transparent;
 	border-left-color: #fff;
 	left: 4px;

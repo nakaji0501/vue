@@ -22,7 +22,7 @@
             </div>
 
             <div class="study_map c-width">
-                <p
+                <p v-once
                 class="subTitle">STUDY</p>
                 <ul
                 v-for="(list, index) in studyList"
@@ -136,9 +136,12 @@
                 <p>自分の考えを全世界誰でも見られるインターネットに「形」として作り楽しむことができる。それを楽しんでくれるあなたがいる。そう思うととても素敵な仕事だと感じています。</p>
                 <p>「自分」×「相手」の両者の喜びを作り出していきたいです。</p>
             </div>
+            <router-link
+            to="/works">
             <next-button
             text="過去の制作物はこちら"
             class="nextBtn" />
+            </router-link>
         </div>
     </div>
 </template>
@@ -165,7 +168,7 @@ export default {
             },
             studyList: [
                 { date: '2020.05.01', study: 'プログラミング学習開始', works: 'イメージ' },
-                { date: 'Lesson -online-', study: 'Progate,dotinstall,Udemy,tecpit' },
+                { date: 'Lesson -online-', study: 'Progate,dotinstall, Udemy,tecpit' },
                 { date: '2020.10.31', study: '転職活動スタート' },
             ],
             books: [
@@ -196,7 +199,7 @@ export default {
 .centerLine span {
     display: block;
     width: 1px;
-    height: 840px;
+    height: 880px;
     background-color: #333;
     margin: 0 auto;
 }
@@ -210,6 +213,7 @@ export default {
 }
 .parallax-wrapper {
     background-color: #fff;
+    padding-bottom: 60px;
 }
 .parallax-bg {
     height: 500px;
@@ -219,7 +223,7 @@ export default {
     display: block;
     position: fixed;
     content: '';
-    top: 0;
+    top: 30px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -346,5 +350,41 @@ export default {
 .messageText_inner p {
     margin-bottom: 24px;
     font-size: 18px;
+}
+
+@media (max-width: 670px){
+.status {
+    width: 160px;
+    right: 54%;
+}
+.study_map {
+    width: 160px;
+}
+.study_map > ul {
+    margin-left: 24px;
+}
+.study_books {
+    margin-left: 24px;
+}
+.skill {
+    width: 160px;
+    right: 54%;
+}
+.skill_item {
+    flex-basis: 30%;
+}
+.output {
+    width: 160px;
+}
+.business {
+    width: 160px;
+}
+.messageText_inner {
+    width: 90%;
+}
+.nextBtn {
+    margin-left: 16px;
+    width: 90%;
+}
 }
 </style>

@@ -1,10 +1,11 @@
 <template>
-    <div class="text">
+    <div class="textAnime">
         <span
         v-for="(t, index) in text"
         :key="index"
         v-text="t"
-        class="text_anim delay-anime"
+        :style="{animationDelay: index * 50 + 'ms'}"
+        class="text-anim"
         />
     </div>
 </template>
@@ -12,9 +13,9 @@
 <script>
 export default {
     data() {
-        return {
-            text: 'テキストアニメーションを付与していろいろ面白くしたいところです'
-        }
+      return {
+        text: 'これはテスト文章なのであとで変更'
+      }
     }
 }
 </script>
@@ -34,10 +35,5 @@ export default {
   min-width: 0.3em;
   font-size: 2rem;
   animation: text-in .8s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards;
-}
-for co in 0 .. 12 {
-  .delay-anime:nth-child({co + 1}) {
-    animation-delay : co * 100ms + 200ms;
-  }
 }
 </style>

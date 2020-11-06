@@ -13,7 +13,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // use footer  components
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 // use header components
-import { faAddressCard, faFileCode, faCheckCircle, faDesktop, } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faFileCode, faDesktop, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // use top components
 import { faUser, faMapMarkerAlt, faCode, faLaptopCode, faLightbulb, faExternalLinkAlt,  } from '@fortawesome/free-solid-svg-icons'
 
@@ -30,8 +30,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // 上記で記載したアイコン名をLibraryに追加
 // solid, brands関係なしでOK。
-library.add(faAddressCard, faTwitterSquare, faFileCode, faUser, faLightbulb, faExternalLinkAlt, 
-  faCheckCircle, faMapMarkerAlt, faDesktop, faCode, faLaptopCode, faWordpress,
+library.add(faAddressCard, faTwitterSquare, faFileCode, faUser, faLightbulb, faExternalLinkAlt, faEnvelope,
+  faMapMarkerAlt, faDesktop, faCode, faLaptopCode, faWordpress,
   faHtml5, faCss3, faJs, faVuejs, faPhp, faGithub, faBootstrap,faArrowUp,faSass
   )
 

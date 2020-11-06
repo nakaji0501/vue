@@ -7,9 +7,8 @@
 
     <div class="mainImage">
     </div>
-
     <div class="text">
-      <text-anime2 />
+      <text-anime v-if="anime" />
     </div>
 
     <div class="mask"></div>
@@ -21,6 +20,8 @@
       v-for="(item, index) in lists"
       :key="index"
       class="item"
+      @click="textAnime"
+
       >
       <router-link
       :to=item.path
@@ -51,36 +52,47 @@
 </template>
 
 <script>
-import TextAnime2 from '../parts/textAnime'
+import TextAnime from '../parts/textAnime'
 import moreButton from '../parts/moreButton'
 
 export default {
   name: 'vueHeader',
   components: {
-    TextAnime2,
+    TextAnime,
     moreButton,
   },
   data() {
     return {
       isActive: false,
-      anime2: true,
+      anime: true,
       autoplay: true,
       lists: [
         { title: 'top', path: '/', prefix: 'fas', icon: 'desktop', size: '2x',
         id: 1, text: 'TOPページです。', subText: '制作物の紹介と私に出来る業務・私自身についてご紹介します。' },
         { title: 'profile', path: '/profile', prefix: 'fas', icon: 'address-card', size: '2x',
         id: 2, text: 'Profileページです。', subText: '私のプログラミング学習の経過や学習している言語などをご紹介します。' },
-        { title: 'works', path: '/works', prefix: 'fas', icon: 'check-circle', size: '2x',
+        { title: 'works', path: '/works', prefix: 'fas', icon: 'file-code', size: '2x',
         id: 3, text: 'Serviceページです。', subText: '過去の制作物をご紹介します。'},
-        { title: 'contact', path: '/contact', prefix: 'fas', icon: 'file-code', size: '2x',
+        { title: 'contact', path: '/contact', prefix: 'far', icon: 'envelope', size: '2x',
         id: 4, text: 'contactページです。', subText: 'お気軽にお問い合わせください。' },
       ],
+    }
+  },
+  methods: {
+    textAnime: function() {
+      
     }
   },
 }
 </script>
 
 <style scoped>
+.router-link-exact-active p,
+.router-link-exact-active * {
+  color: red;
+  border-color: transparent !important;
+  border-left-color: red !important;
+}
 .active {
   background-color: lightgray;
 }
@@ -140,12 +152,10 @@ export default {
 a {
   text-decoration: none;
 }
-.showPage {
-  margin-top: 300px;
+@media (max-width: 568px){
+  .item_text {
+    font-size: 1.3em;
+  }
 }
-.showpage_text, .showPage_content {
-  width: 500px;
-  height: 60px;
-  background-color: red;
-}
+
 </style>

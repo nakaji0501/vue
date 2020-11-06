@@ -8,7 +8,7 @@
         <div class="works_contents">
 
             <div class="works_content"
-            v-for="item in lists"
+            v-for="(item, index) in lists"
             :key="item.id"
             >
                 <h3>{{ item.name }}</h3>
@@ -20,7 +20,7 @@
                 >
                     <button class="accordion-trigger" type="buton"
                     :class="{'state-open': isOpened }"
-                    @click="accordionToggle()"
+                    @click="accordionToggle(index)"
                     >
                     open
                     </button>
@@ -29,10 +29,10 @@
                     v-if="isOpened"
                     >
                         <div class="accordion-body">
-                            <p>{{ item.text }} </p>
-                            <p>{{ item.point }}</p>
-                            <p>{{ item.language }}</p>
-                            <p>{{ item.url }}</p>
+                            <p>・{{ item.text }} </p>
+                            <p>・{{ item.point }}</p>
+                            <p>・{{ item.language }}</p>
+                            <a href="item.url">・リンク先へ</a>
                         </div>
                     </div>
                 </div>
@@ -56,58 +56,58 @@ export default {
                 text: 'inputの値を参照にデータを加工しレスポンスしたデータを表示させた',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html,css,Javascrpit',
-                url: 'URLを記載する'
+                url: 'https://nakaji0501.github.io/app/childwithlife'
                 },
                 {
                 id: '2',
-                name: 'Vue.jsでToDoを作成',
+                name: 'ホームページ',
                 img: require('@/assets/image/webservice.png'),
                 text: 'ToDoの追加・削除・進捗管理を実装',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html,css,Javascript,Vue.js',
-                url: 'URLを記載する'
+                url: 'URL'
                 },
                 {
                 id: '3',
-                name: '制作物の名前',
+                name: 'コーポレートサイト',
                 img: require('@/assets/image/kurinote.png'),
                 text: '目的・方法・言語・創意工夫・出来ることなど',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html.css',
-                url: 'URLを記載する'
+                url: 'URL'
                 },
                 {
                 id: '4',
-                name: '制作物の名前',
+                name: 'ETサイト(模写)',
                 img: require('@/assets/image/ninco.png'),
                 text: '目的・方法・言語・創意工夫・出来ることなど',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html,css,Javascript',
-                url: 'URLを記載する'
+                url: 'URL'
                 },
                 {
                 id: '5',
-                name: '制作物の名前',
+                name: 'コーポレートサイト',
                 img: require('@/assets/image/wp-theme.png'),
                 text: '目的・方法・言語・創意工夫・出来ることなど',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html,css,Sass,Wordpress',
-                url: 'URLを記載する'
+                url: 'http://nakaji_junk.com/wordpress'
                 },
                 {
                 id: '6',
-                name: '制作物の名前',
+                name: 'ホームページ',
                 img: require('@/assets/image/cafetakuba.png'),
                 text: '目的・方法・言語・創意工夫・出来ることなど',
                 point: '成功・失敗・アピールしたいこと',
                 language: 'html,css,Javascript',
-                url: 'URLを記載する'
+                url: 'URL'
                 },
             ]
         }
     },
     methods: {
-        accordionToggle: function() {
+        accordionToggle: function(index) {
             this.isOpened = !this.isOpened
         }
     }
@@ -153,15 +153,20 @@ p {
     text-align: left;
     margin-bottom: 8px;
 }
+a {
+    width: 80%;
+    display: inline-block;
+    text-align: left;
+}
 .works_img {
     height: 200px;
     width: 100%;
     margin: 8px 0;
     background-color: lightgray;
+    overflow-y: auto;
 }
 .works_img img {
-    height: 200px;
-    overflow: hidden;
+    width: 100%;
 }
 .accordion-trigger {
     margin: 16px 0;
@@ -176,8 +181,9 @@ p {
 }
 
 @media (max-width: 670px) {
-.works_content {
-    flex-basis: 40%;
+.works_contents {
+    flex-direction: column;
+    width: 80%;
 }
 }
 </style>

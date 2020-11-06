@@ -5,14 +5,10 @@
 .tit {
     padding: 64px 0;
     font-size: 3em;
-    text-align: center;
 }
 li {
     list-style: none;
 }
 body {
     max-width: 1440px;
-}
-p {
-    line-height: 24px;
 }
