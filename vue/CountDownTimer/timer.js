@@ -1,14 +1,47 @@
+// ローカルストレージAPI
+// https://jp.vuejs.org/v2/examples/todomvc.html
+var STORAGE_KEY = 'CountDownTimer'
+var listsStorage = {
+  fetch: function() {l
+    var lists = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || '[]'
+    )
+    lists.forEach(function(list, index) {
+      list.id = index
+    })
+    listsStorage.uid = lists.length
+    return lists
+  },
+  save: function(lists) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(lists))
+  }
+}
+
 var app = new Vue ({
     el: '#app',
     data: {
+        lists: [],
+        thema: '',
         min: 0,
         sec: 1,
         msec: 0,
         timerOn: false,
         timerOn: null,
         resetOn: false,
+        result: false,
     },
     methods: {
+        textAdd: function() {
+            var text = this.$refs.text
+            if (!text.value.length) {
+                return
+            }
+            this.lists.push({
+                id: listsStorage.uid++,
+                text: text.value,
+            })
+            text.value = ''
+        },
         count: function() {
             if (this.msec <= 0 && this.sec >= 1) {
                 this.sec --;
@@ -40,21 +73,26 @@ var app = new Vue ({
             clearInterval(this.timerObj)
             var options = {
                 title: "Finish!!",
-                text: "3秒後にアラートが自動的に閉じます",
+                text: "3秒後に自動的に閉じます",
                 icon: "success", // warning, info, error
                 timer: 3000, // 3秒後に自動的にアラートを閉じる
                 buttons: false,
               }
               swal(options);
-              this.sec = 1;
+              this.sec = 10;
               this.timerOn = false;
+              this.result = true
         },
 
         reset: function() {
             this.resetOn = false;
-            this.sec = 1;
+            this.sec = 10;
             this.msec = 0;
-        }
+        },
+
+        resultReset: function() {
+            this.result = false;
+        },
     },
     computed: {
         formatTime: function() {
@@ -72,5 +110,16 @@ var app = new Vue ({
             })
             return timeStrings[0] + ":" + timeStrings[1] + ":" + timeStrings[2]
         }
-    }
+    },
+    watch: {
+        lists: {
+            handler: function(lists) {
+                listsStorage.save(lists)
+            },
+            deep: true
+        }
+    },
+    created() {
+        this.lists = listsStorage.fetch()
+    },
 })

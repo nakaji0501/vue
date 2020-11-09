@@ -4,5 +4,15 @@
     justify-content: center;
     }
 .time{
-    font-size: 100px;
+    font-size: 80px;
+}
+li {
+    list-style: circle;
+}
+.sampleList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sampleList li {
+    flex-basis: 30%;
 }

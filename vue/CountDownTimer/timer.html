@@ -9,19 +9,95 @@
 
 <body>
     <div id="app">
-        <div class="title">
-            <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
-        </div>
-        <div id="timer">
-            <div class="timer">
-                <div class="time">
-                    {{ formatTime }}
+
+        <div
+        v-show="!result"
+        class="timerContent">
+
+            <div class="title">
+                <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
+                <p>制限時間は1分です</p>
+            </div>
+
+            <div id="timer">
+                <div class="timer">
+                    <div class="time">
+                        {{ formatTime }}
+                    </div>
+                    <button @click="start" v-if="!timerOn">START</button>
+                    <button @click="stop" v-if="timerOn">STOP</button>
+                    <button @click="reset" v-if="resetOn">RESET</button>
                 </div>
-                <button @click="start" v-if="!timerOn">START</button>
-                <button @click="stop" v-if="timerOn">STOP</button>
-                <button @click="reset" v-if="resetOn">RESET</button>
+            </div>
+
+        </div>
+
+        <div
+        v-show="!result"
+        class="addThema">
+            <p>何を思い出すかテーマを決めよう</p>
+            テーマ
+            <input v-model="thema" type="text">
+        </div>
+            <!-- <div class="sample">
+                <ul class="sampleList">
+                    <li>羊の数...</li>
+                    <li>今月子どもを褒めた回数</li>
+                    <li>最近の嬉しかったこと</li>
+                    <li>最近大笑いした出来事</li>
+                    <li>今年立てた目標</li>
+                </ul>
+            </div> -->
+
+        <div class="thema">
+            <p v-model="thema">あなたが決めたテーマ：{{ thema }}</p>
+        </div>
+
+        <div
+        v-show="!result"
+        class="textContent">
+
+
+            <div class="addText">
+                <h3>ここに内容を入力してね</h3>
+                <p>Enterで入力できます</p>
+
+                <form
+                @submit.prevent="textAdd"
+                >
+                <input ref="text" type="text">
+                <button type="submit">入力</button>
+                </form>
+            </div>
+
+            <div class="textList">
+                <p>現在全部で　{{ lists.length }}　つです。</p>
+                <ul>
+                    <li
+                    v-for="list in lists"
+                    :key="list.id"
+                    >
+                    {{ list.id }}
+                    ：
+                    {{ list.text }}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div v-show="result">
+            <p>あなたの思い出せた数は</p>
+            <p>{{ lists.length }}つ</p>
+            <p>でした</p>
+            <div>
+                <button
+                @click.prevent="resultReset"
+                >もう一度やる
+                </button>
             </div>
         </div>
+
     </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
