@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMER</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="title">
+            <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
+        </div>
+        <div id="timer">
+            <div class="timer">
+                <div class="time">
+                    {{ formatTime }}
+                </div>
+                <button @click="start" v-if="!timerOn">START</button>
+                <button @click="stop" v-if="timerOn">STOP</button>
+                <button @click="reset" v-if="resetOn">RESET</button>
+            </div>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="timer.js"></script>
+</body>
+</html>
