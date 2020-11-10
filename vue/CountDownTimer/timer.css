@@ -1,18 +1,218 @@
-#timer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-.time{
-    font-size: 80px;
+* {
+    margin: 0;
+    padding: 0;
 }
-li {
-    list-style: circle;
+body {
+    max-width: 600px;
+    font-size: 18px;
+    padding: 40px;
+}
+.title {
+    text-align: center;
+    margin-bottom: 64px;
+}
+.addThema {
+    text-align: center;
+}
+.addThema h3 {
+    margin-bottom: 24px;
+}
+.addThema input {
+    display: block;
+    margin: 24px auto;
+    width: 500px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: 3px solid orange;
+    border-radius: 4px;
+}
+.sample {
+    text-align: left;
+    margin-left: 60px;
 }
 .sampleList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .sampleList li {
-    flex-basis: 30%;
+    flex-basis: 50%;
+}
+.next {
+    text-align: center;
+    margin-top: 64px;
+    cursor: pointer;
+}
+.next a {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    border-bottom: solid 3px #668ad8;
+    border-left: solid 3px #668ad8;
+    color: #668ad8;
+    transition: .4s;
+    font-size: 1.5rem;
+    width: 100px;
+}
+.next a:hover {
+    padding-left: 0.7em;
+    padding-right: 0.3em;
+}
+#timer {
+    text-align: center;
+}
+.setTime{
+    font-size: 5rem;
+}
+.timerBtn p {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(152, 152, 152, 0.43);/*アイコン色*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: solid 2px #b5b5b5;
+    cursor: pointer;
+  }
+.timerBtn i {
+line-height: 80px;
+}
+.timerBtn:active {
+/*押したとき*/
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+border-bottom: none;
+}
+.textContent {
+    padding: 40px;
+}
+.addText {
+    margin-bottom: 16px;
+}
+.addText p {
+    margin-bottom: 24px;
+}
+.addText input {
+    height: 40px;
+    width: 400px;
+    font-size: 1.5rem;
+}
+.addText button {
+    font-size: 1.2rem;
+    padding: 4px 24px;
+}
+.textList span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+}
+.textList ol {
+    margin-top: 24px;
+}
+.listItem {
+    margin-left: 40px;
+    list-style-type: decimal-leading-zero;
+    line-height: 2rem;
+    overflow-wrap: break-word;
+}
+.listTitle {
+    position: relative;
+    padding: 0.6em;
+    background: -webkit-repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
+    background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
+    border-radius: 7px;
+    margin-bottom: 24px;
+    width: 500px;
+    font-weight: bold;
+    letter-spacing: 1.5rem;
+    text-align: center;
+
+}
+.listTitle:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid #ffebbe;
+    width: 0;
+    height: 0;
+}
+.result_wrapper h2 {
+    text-align: center;
+    margin: 0 auto 54px;
+    font-size: 3rem;
+    width: 200px;
+    border-bottom: 3px solid orange;
+}
+.topic{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.topic h3 {
+    position: relative;
+    background: #ffd1a5;
+    padding: 2px 5px 2px 20px;
+    font-size: 20px;
+    color: #474747;
+    border-radius: 0 10px 10px 0;
+    width: 500px;
+    margin-left: 40px;
+    margin-bottom: 32px;
+}
+.topic h3:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f044";
+    display: inline-block;
+    line-height: 40px;
+    position: absolute;
+    padding: 0em;
+    color: white;
+    background: #d6751b;
+    font-weight: 900;
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    left: -1.35em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 2px #866b41;
+}
+.topic p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.result span {
+    color: red;
+}
+.replayBtn {
+    text-align: center;
+    font-size: 1.3rem;
+}
+.replay {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #ECECEC;
+    transition: .4s;
+}
+.replay:hover {
+    background: #00bcd4;
+    color: white;
 }

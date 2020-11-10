@@ -22,15 +22,19 @@ var app = new Vue ({
     data: {
         lists: [],
         thema: '',
+        gamepage: false,
+        result: false,
         min: 0,
         sec: 1,
         msec: 0,
         timerOn: false,
         timerOn: null,
         resetOn: false,
-        result: false,
     },
     methods: {
+        addedThema: function() {
+            this.gamepage = true
+        },
         textAdd: function() {
             var text = this.$refs.text
             if (!text.value.length) {
@@ -61,6 +65,7 @@ var app = new Vue ({
             let self = this;
             this.timerObj = setInterval(function() {self.count()}, 1000 / 60)
             this.timerOn = true;
+            this.resetOn = false;
         },
 
         stop: function() {
@@ -81,8 +86,8 @@ var app = new Vue ({
               swal(options);
               this.sec = 10;
               this.timerOn = false;
-              this.result = true
-        },
+              this.result = true;
+            },
 
         reset: function() {
             this.resetOn = false;
@@ -92,6 +97,7 @@ var app = new Vue ({
 
         resultReset: function() {
             this.result = false;
+            this.lists = '';
         },
     },
     computed: {

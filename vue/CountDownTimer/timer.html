@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIMER</title>
-    <link rel="stylesheet" href="timer.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIMER</title>
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+<!-- fontawesome -->
+<link href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" rel="stylesheet">
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="timer.css">
 </head>
 
 <body>
     <div id="app">
 
         <div
-        v-show="!result"
+        class="title">
+            <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
+            <p v-show="!result">制限時間は1分です</p>
+        </div>
+
+        <div
+        v-show="!gamepage"
+        v-if="!result"
+        class="addThema">
+            <h3>何を思い出すかテーマを決めよう</h3>
+            <p>↓ここにテーマを入力してしてね↓</p>
+            <input v-model="thema" type="text">
+            <div class="sample">
+                <p>（例）</p>
+                <ul class="sampleList">
+                    <li>今月子どもを褒めたこと</li>
+                    <li>最近の嬉しかったこと</li>
+                    <li>最近大笑いしたこと</li>
+                    <li>いつかやりたいこと</li>
+                    <li>今年やり残したこと</li>
+                    <li>脳活アハ！体験</li>
+                </ul>
+            </div>
+            <div
+            @click="addedThema"
+            class="next">
+                <a>
+                <i class="fa fa-caret-right"></i>
+                次へ</a>
+            </div>
+        </div>
+
+        <div
+        v-show="gamepage"
+        v-if="!result"
         class="timerContent">
 
-            <div class="title">
-                <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
-                <p>制限時間は1分です</p>
-            </div>
-
             <div id="timer">
-                <div class="timer">
-                    <div class="time">
+                    <div class="setTime">
                         {{ formatTime }}
                     </div>
-                    <button @click="start" v-if="!timerOn">START</button>
-                    <button @click="stop" v-if="timerOn">STOP</button>
-                    <button @click="reset" v-if="resetOn">RESET</button>
-                </div>
+                    <div class="timerBtn">
+                        <p @click="start" v-if="!timerOn">始</p>
+                        <p @click="stop" v-if="timerOn">止</p>
+                        <p @click="reset" v-if="resetOn">再</p>
+                    </div>
             </div>
-
         </div>
 
         <div
-        v-show="!result"
-        class="addThema">
-            <p>何を思い出すかテーマを決めよう</p>
-            テーマ
-            <input v-model="thema" type="text">
-        </div>
-            <!-- <div class="sample">
-                <ul class="sampleList">
-                    <li>羊の数...</li>
-                    <li>今月子どもを褒めた回数</li>
-                    <li>最近の嬉しかったこと</li>
-                    <li>最近大笑いした出来事</li>
-                    <li>今年立てた目標</li>
-                </ul>
-            </div> -->
-
-        <div class="thema">
-            <p v-model="thema">あなたが決めたテーマ：{{ thema }}</p>
-        </div>
-
-        <div
-        v-show="!result"
+        v-show="gamepage"
+        v-if="!result"
         class="textContent">
 
-
             <div class="addText">
-                <h3>ここに内容を入力してね</h3>
-                <p>Enterで入力できます</p>
-
+                <p>ここに内容を入力してね(Enterで入力できます)</p>
                 <form
                 @submit.prevent="textAdd"
                 >
@@ -71,33 +82,54 @@
             </div>
 
             <div class="textList">
-                <p>現在全部で　{{ lists.length }}　つです。</p>
-                <ul>
+                <p>現在全部で　<span>{{ lists.length }}</span>　つです。</p>
+                <ol>
+                    <p class="listTitle">
+                    <i class="far fa-lightbulb"></i>
+                    思い出したもの
+                    </p>
                     <li
                     v-for="list in lists"
                     :key="list.id"
+                    class="listItem"
                     >
-                    {{ list.id }}
-                    ：
                     {{ list.text }}
                     </li>
-                </ul>
+                </ol>
             </div>
-
         </div>
 
-        <div v-show="result">
-            <p>あなたの思い出せた数は</p>
-            <p>{{ lists.length }}つ</p>
-            <p>でした</p>
-            <div>
-                <button
+        <div
+        v-if="result"
+        class="result_wrapper">
+
+        <h2>RESULT</h2>
+
+            <div class="thema topic">
+                <h3>あなたが決めたテーマ</h3>
+                <p v-model="thema">{{ thema }}</p>
+            </div>
+
+            <div class="selectTime topic">
+                <h3>あなたが選んだ制限時間</h3>
+                <p>1分</p>
+            </div>
+
+            <div class="result topic">
+                <h3>あなたの思い出せた数は</h3>
+                <p><span>{{ lists.length }}つ</span>でした</p>
+            </div>
+
+            <div class="replayBtn">
+                <a
                 @click.prevent="resultReset"
-                >もう一度やる
-                </button>
+                class="replay"
+                >
+                <i class="fas fa-undo-alt"></i>
+                もう一度やる
+                </a>
             </div>
         </div>
-
     </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
