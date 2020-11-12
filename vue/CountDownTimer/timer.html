@@ -6,7 +6,7 @@
 <title>TIMER</title>
 <!-- google font -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-<!-- fontawesome -->
+<!-- font-awesome -->
 <link href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" rel="stylesheet">
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -23,21 +23,20 @@
         </div>
 
         <div
-        v-show="!gamepage"
+        v-show="!gamePage"
         v-if="!result"
         class="addThema">
             <h3>何を思い出すかテーマを決めよう</h3>
             <p>↓ここにテーマを入力してしてね↓</p>
             <input v-model="thema" type="text">
             <div class="sample">
-                <p>（例）</p>
+                <p>（例）ここから選んでもOKです</p>
                 <ul class="sampleList">
-                    <li>今月子どもを褒めたこと</li>
-                    <li>最近の嬉しかったこと</li>
-                    <li>最近大笑いしたこと</li>
-                    <li>いつかやりたいこと</li>
-                    <li>今年やり残したこと</li>
-                    <li>脳活アハ！体験</li>
+                    <li><input v-model="thema" value="今月子どもを褒めたこと" type="radio" name="themaName"><a>今月子どもを褒めたこと</a></li>
+                    <li><input v-model="thema" value="最近の嬉しかったこと" type="radio" name="themaName"><a>最近の嬉しかったこと</a></li>
+                    <li><input v-model="thema" value="最近大笑いしたこと" type="radio" name="themaName"><a>最近大笑いしたこと</a></li>
+                    <li><input v-model="thema" value="いつかやりたいこと" type="radio" name="themaName"><a>いつかやりたいこと</a></li>
+                    <li><input v-model="thema" value="今年やり残したこと" type="radio" name="themaName"><a>今年やり残したこと</a></li>
                 </ul>
             </div>
             <div
@@ -50,10 +49,17 @@
         </div>
 
         <div
-        v-show="gamepage"
+        v-show="gamePage"
         v-if="!result"
         class="timerContent">
 
+            <div
+            @click="back"
+            class="backBtn">
+                <button><i class="fas fa-arrow-circle-left"></i>
+                戻る</button>
+            </div>
+            
             <div id="timer">
                     <div class="setTime">
                         {{ formatTime }}
@@ -64,21 +70,25 @@
                         <p @click="reset" v-if="resetOn">再</p>
                     </div>
             </div>
+
         </div>
 
         <div
-        v-show="gamepage"
+        v-show="gamePage"
         v-if="!result"
         class="textContent">
 
             <div class="addText">
-                <p>ここに内容を入力してね(Enterで入力できます)</p>
+                <p>『始』を押してから下の入力欄に箇条書きで入力してね<br>(Enterで入力できます)</p>
+                <h3>あなたが選んだテーマ<br>『{{ thema }}』</h3>
+
                 <form
                 @submit.prevent="textAdd"
                 >
                 <input ref="text" type="text">
                 <button type="submit">入力</button>
                 </form>
+
             </div>
 
             <div class="textList">
@@ -90,7 +100,6 @@
                     </p>
                     <li
                     v-for="list in lists"
-                    :key="list.id"
                     class="listItem"
                     >
                     {{ list.text }}
@@ -107,7 +116,7 @@
 
             <div class="thema topic">
                 <h3>あなたが決めたテーマ</h3>
-                <p v-model="thema">{{ thema }}</p>
+                <p> {{ thema }}</p>
             </div>
 
             <div class="selectTime topic">
@@ -118,6 +127,23 @@
             <div class="result topic">
                 <h3>あなたの思い出せた数は</h3>
                 <p><span>{{ lists.length }}つ</span>でした</p>
+            </div>
+
+            <div class="textList topic">
+                <ol>
+                    <h3 class="listTitle">
+                    <i class="far fa-lightbulb"></i>
+                    思い出したもの
+                    </h3>
+                    <li
+                    v-for="list in lists"
+                    :key="list.id"
+                    class="listItem resultListItem"
+                    >
+                    {{ list.text }}
+                    </li>
+                    <!-- {{ resultLists }} -->
+                </ol>
             </div>
 
             <div class="replayBtn">

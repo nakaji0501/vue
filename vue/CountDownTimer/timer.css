@@ -1,3 +1,4 @@
+/* common */
 * {
     margin: 0;
     padding: 0;
@@ -5,22 +6,27 @@
 body {
     max-width: 600px;
     font-size: 18px;
-    padding: 40px;
+    padding: 8px;
+    margin: 0 auto;
 }
+
+/* themaPage */
 .title {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 24px;
 }
 .addThema {
     text-align: center;
-}
+}o
 .addThema h3 {
+    font-size: 1.2rem;
     margin-bottom: 24px;
 }
 .addThema input {
     display: block;
     margin: 24px auto;
-    width: 500px;
+    max-width: 600px;
+    width: 100%;
     height: 40px;
     font-size: 1.5rem;
     border: 3px solid orange;
@@ -28,15 +34,21 @@ body {
 }
 .sample {
     text-align: left;
-    margin-left: 60px;
-}
-.sampleList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    font-size: 1rem;
 }
 .sampleList li {
-    flex-basis: 50%;
+    list-style: none;
+    width: 90%;
+    height: 30px;
+}
+.sampleList input {
+    display: inline-block;
+    width: 20px;
+    margin: 0 16px;
+}
+.sampleList a {
+    display: inline-block;
+    transform: translateY(-12px);
 }
 .next {
     text-align: center;
@@ -60,11 +72,14 @@ body {
     padding-left: 0.7em;
     padding-right: 0.3em;
 }
+
+/* gamePage */
 #timer {
     text-align: center;
+    position: relative;
 }
 .setTime{
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .timerBtn p {
     display: inline-block;
@@ -83,7 +98,7 @@ body {
     box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
     border-bottom: solid 2px #b5b5b5;
     cursor: pointer;
-  }
+}
 .timerBtn i {
 line-height: 80px;
 }
@@ -92,8 +107,15 @@ line-height: 80px;
 box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
 border-bottom: none;
 }
+.backBtn i {
+    margin-right: 4px;
+}
+.backBtn button {
+    font-size: 1rem;
+    padding: 4px 12px;
+}
 .textContent {
-    padding: 40px;
+    padding: 20px;
 }
 .addText {
     margin-bottom: 16px;
@@ -102,9 +124,10 @@ border-bottom: none;
     margin-bottom: 24px;
 }
 .addText input {
-    height: 40px;
-    width: 400px;
+    height: 32px;
+    width: 100%;
     font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 .addText button {
     font-size: 1.2rem;
@@ -131,9 +154,8 @@ border-bottom: none;
     background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
     border-radius: 7px;
     margin-bottom: 24px;
-    width: 500px;
+    width: 90%;
     font-weight: bold;
-    letter-spacing: 1.5rem;
     text-align: center;
 
 }
@@ -146,6 +168,11 @@ border-bottom: none;
     border-top: 15px solid #ffebbe;
     width: 0;
     height: 0;
+}
+
+/* result */
+.result {
+    width: 100%;
 }
 .result_wrapper h2 {
     text-align: center;
@@ -165,7 +192,6 @@ border-bottom: none;
     font-size: 20px;
     color: #474747;
     border-radius: 0 10px 10px 0;
-    width: 500px;
     margin-left: 40px;
     margin-bottom: 32px;
 }
@@ -194,13 +220,19 @@ border-bottom: none;
 .topic p {
     font-size: 2rem;
     font-weight: bold;
+    overflow-wrap: break-word;
 }
 .result span {
     color: red;
 }
+.resultListItem {
+    margin-left: 60px;
+    text-align: left;
+}
 .replayBtn {
     text-align: center;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 .replay {
     position: relative;

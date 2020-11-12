@@ -22,18 +22,27 @@ var app = new Vue ({
     data: {
         lists: [],
         thema: '',
-        gamepage: false,
+        gamePage: false,
         result: false,
         min: 0,
-        sec: 1,
+        sec: 10,
         msec: 0,
         timerOn: false,
         timerOn: null,
         resetOn: false,
+        // resultLists: [],
     },
     methods: {
         addedThema: function() {
-            this.gamepage = true
+            this.gamePage = true;
+        },
+        back: function() {
+            clearInterval(this.timerObj);
+            this.gamePage = false;
+            this.lists = '';
+            this.timerOn = false;
+            this.sec = 10;
+            this.msec = 0;
         },
         textAdd: function() {
             var text = this.$refs.text
@@ -41,7 +50,6 @@ var app = new Vue ({
                 return
             }
             this.lists.push({
-                id: listsStorage.uid++,
                 text: text.value,
             })
             text.value = ''
@@ -97,8 +105,12 @@ var app = new Vue ({
 
         resultReset: function() {
             this.result = false;
-            this.lists = '';
+            this.gamePage = false;
+            this.lists = [];
         },
+        // resultLists: function() {
+        //     this.lists = listsStorage.fetch();
+        // },
     },
     computed: {
         formatTime: function() {
@@ -115,8 +127,12 @@ var app = new Vue ({
                 }
             })
             return timeStrings[0] + ":" + timeStrings[1] + ":" + timeStrings[2]
-        }
+        },
     },
+    // updated() {
+    //     resultLists = this.lists
+    //     this.lists = listsStorage.fetch();
+    // },
     watch: {
         lists: {
             handler: function(lists) {
@@ -124,8 +140,5 @@ var app = new Vue ({
             },
             deep: true
         }
-    },
-    created() {
-        this.lists = listsStorage.fetch()
     },
 })
