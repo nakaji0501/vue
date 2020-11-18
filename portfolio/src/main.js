@@ -15,7 +15,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 // use header components
 import { faAddressCard, faFileCode, faDesktop, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // use top components
-import { faUser, faMapMarkerAlt, faCode, faLaptopCode, faLightbulb, faExternalLinkAlt,  } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faMapMarkerAlt, faHandRock, faCode, faLaptopCode, faLightbulb, faExternalLinkAlt,  } from '@fortawesome/free-solid-svg-icons'
 
 // brandsの中で何を使うかをキャメルケースで記載
 // use footer components
@@ -31,11 +31,25 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // 上記で記載したアイコン名をLibraryに追加
 // solid, brands関係なしでOK。
 library.add(faAddressCard, faTwitterSquare, faFileCode, faUser, faLightbulb, faExternalLinkAlt, faEnvelope,
-  faMapMarkerAlt, faDesktop, faCode, faLaptopCode, faWordpress,
+  faHandRock, faDesktop, faCode, faLaptopCode, faWordpress, faMapMarkerAlt,
   faHtml5, faCss3, faJs, faVuejs, faPhp, faGithub, faBootstrap,faArrowUp,faSass
   )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.component('move-to-top', {
+  data: function() {
+    const duration = 500;
+    const interval = 25;
+    const step = -window.scrollY / Math.ceil(duration / interval);
+    const timer = setInterval(() => {
+    window.scrollBy(0, step) ;
+    if (window.scrollY <= 0) {
+        clearInterval(timer);
+    }
+    }, interval);
+  }
+})
 
 // global
 Vue.component('header-nav', {

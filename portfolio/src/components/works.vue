@@ -19,18 +19,19 @@
                 v-cloak
                 >
                     <button class="accordion-trigger" type="buton"
-                    :class="{'state-open': isOpened }"
+                    :class="{'is-active': activeToggle === index }"
                     @click="accordionToggle(index)"
                     >
-                    open
+                    {{ toggleButton }}
                     </button>
-                    <div class="accordion-target"
-                    :class="{ 'state-open': isOpened }"
-                    v-if="isOpened"
+                    <div class=""
+                    :class="{'is-active': activeToggle === index }"
+                    v-if="activeToggle === index"
                     >
                         <div class="accordion-body">
+                            <p>・{{ item.date }}</p>
                             <p>・{{ item.text }} </p>
-                            <p>・{{ item.point }}</p>
+                            <p>・{{ item.point1 }}<br>{{ item.point2 }}<br>{{ item.point3 }}</p>
                             <p>・{{ item.language }}</p>
                             <a href="item.url">・リンク先へ</a>
                         </div>
@@ -39,76 +40,113 @@
             </div>
         </div>
         <div class="space"></div>
+
+        <div class="contact_button">
+        <contact-button />
+      </div>
     </div>
 </template>
 
 <script>
+import contactButton from '../parts/contactButton'
+
 export default {
     name: 'works',
+    components: {
+        contactButton,
+    },
     data() {
         return {
-            isOpened: false,
+            activeToggle: null,
+            toggleButton: 'open',
+            // 'is-active': true,
             lists: [
+                // {
+                //     id: '',
+                //     date: '',
+                //     img: '',
+                //     text: '',
+                //     point1: '',
+                //     language: '',
+                //     url: '',
+                // },
                 {
-                id: '1',
+                id: '6',
+                date: '[制作日]:2020.08.20',
+                name: 'コーポレートサイト(WordPress)',
+                img: require('@/assets/image/wp-theme.png'),
+                text: 'WordPressのテーマを制作',
+                point1: 'WordPressとBOOTSTRAPの練習として制作',
+                language: 'html,css,Sass,Wordpress',
+                url: 'http://nakaji-junk.com/wordpress'
+                },
+                {
+                id: '5',
+                date: '[制作日]:2020.07.29',
+                name: 'ECサイト(模写)',
+                img: require('@/assets/image/ninco.png'),
+                text: 'JavaScriptの理解を深めるために制作',
+                point1: 'JSONデータの取得や表示、条件別の画面表示などを学習',
+                point2: ' 検索機能やカートに入れるなどのECサイトの機能を実装',
+                language: 'html,css,Javascript',
+                url: 'https://nakaji-junk.com/ninja'
+                },
+                {
+                id: '4',
+                date: '[制作日]:2020.07.08',
+                name: 'コーポレートサイト(Udemy)',
+                img: require('@/assets/image/cafetakuba.png'),
+                text: 'ホームページのTOPページを制作',
+                point1: 'JavaScriptの理解を深めるために制作',
+                point2: '　classコンストラクタとanimationとプラグインを重点的に学習',
+                language: 'html,css,Javascript',
+                url: 'https://nakaji-junk.com/cafe/'
+                },
+                {
+                id: '3',
+                date: '[制作日]:2020.06.23',
                 name: 'JavaScriptでミニアプリを作成',
                 img: require('@/assets/image/webservice.png'),
                 text: 'inputの値を参照にデータを加工しレスポンスしたデータを表示させた',
-                point: '成功・失敗・アピールしたいこと',
+                point1: '[ターゲット層]:0歳〜6歳の子どもを持つ親。',
+                point2: '　[目的]:子育てをする親に子どもと接する時間の大切さを数字で認識してもらうため。',
+                point3: '　[制作過程]:DOMを操作する練習として作成。DOMの変更だけで画面遷移するように意識しました。',
                 language: 'html,css,Javascrpit',
                 url: 'https://nakaji0501.github.io/app/childwithlife'
                 },
                 {
                 id: '2',
-                name: 'ホームページ',
-                img: require('@/assets/image/webservice.png'),
-                text: 'ToDoの追加・削除・進捗管理を実装',
-                point: '成功・失敗・アピールしたいこと',
-                language: 'html,css,Javascript,Vue.js',
-                url: 'URL'
+                date: '[制作日]:2020.06.16',
+                name: 'コーポレートサイト',
+                img: require('@/assets/image/fake-outdoor.png'),
+                text: 'ホームページのTOPページを実装。',
+                point1: 'flexboxとSassの練習として制作',
+                language: 'html,css,Javascript,Sass',
+                url: 'https://nakaji-junk.com/fake-outdoor/'
                 },
                 {
-                id: '3',
-                name: 'コーポレートサイト',
+                id: '1',
+                date: '[制作日]:2020.05.20',
+                name: 'コーポレートサイト(模写)',
                 img: require('@/assets/image/kurinote.png'),
-                text: '目的・方法・言語・創意工夫・出来ることなど',
-                point: '成功・失敗・アピールしたいこと',
+                text: '企業用ホームページを制作',
+                point1: 'HTML,CSSとレスポンシブの練習として制作。初めての模写作品。',
                 language: 'html.css',
-                url: 'URL'
+                url: 'https://nakaji-junk.com/kurinote/'
                 },
-                {
-                id: '4',
-                name: 'ETサイト(模写)',
-                img: require('@/assets/image/ninco.png'),
-                text: '目的・方法・言語・創意工夫・出来ることなど',
-                point: '成功・失敗・アピールしたいこと',
-                language: 'html,css,Javascript',
-                url: 'URL'
-                },
-                {
-                id: '5',
-                name: 'コーポレートサイト',
-                img: require('@/assets/image/wp-theme.png'),
-                text: '目的・方法・言語・創意工夫・出来ることなど',
-                point: '成功・失敗・アピールしたいこと',
-                language: 'html,css,Sass,Wordpress',
-                url: 'http://nakaji_junk.com/wordpress'
-                },
-                {
-                id: '6',
-                name: 'ホームページ',
-                img: require('@/assets/image/cafetakuba.png'),
-                text: '目的・方法・言語・創意工夫・出来ることなど',
-                point: '成功・失敗・アピールしたいこと',
-                language: 'html,css,Javascript',
-                url: 'URL'
-                },
-            ]
+            ],
         }
     },
     methods: {
         accordionToggle: function(index) {
-            this.isOpened = !this.isOpened
+            if(this.activeToggle === index)　{
+                this.activeToggle = null;
+                this.toggleButton = 'open'
+            } else {
+                this.activeToggle = index;
+                this.toggleButton = 'close'
+            }
+        console.log(index);
         }
     }
 }
@@ -159,7 +197,7 @@ a {
     text-align: left;
 }
 .works_img {
-    height: 200px;
+    height: 250px;
     width: 100%;
     margin: 8px 0;
     background-color: lightgray;
@@ -179,7 +217,10 @@ a {
     background-color: #333;
     transform: translateY(50%);
 }
-
+.contact_button {
+    position: relative;
+    z-index: 100;
+}
 @media (max-width: 670px) {
 .works_contents {
     flex-direction: column;

@@ -20,6 +20,7 @@
         class="title">
             <h2>制限時間内に思い出せるだけ思い出すゲーム</h2>
             <p v-show="!result">制限時間は1分です</p>
+            <a v-show="!result">(パソコンでやることをオススメします)</a>
         </div>
 
         <div
@@ -59,7 +60,7 @@
                 <button><i class="fas fa-arrow-circle-left"></i>
                 戻る</button>
             </div>
-            
+
             <div id="timer">
                     <div class="setTime">
                         {{ formatTime }}
@@ -80,7 +81,7 @@
 
             <div class="addText">
                 <p>『始』を押してから下の入力欄に箇条書きで入力してね<br>(Enterで入力できます)</p>
-                <h3>あなたが選んだテーマ<br>『{{ thema }}』</h3>
+                <h3>あなたが選んだテーマ<br><span>『{{ thema }}』</span></h3>
 
                 <form
                 @submit.prevent="textAdd"
@@ -130,7 +131,6 @@
             </div>
 
             <div class="textList topic">
-                <ol>
                     <h3 class="listTitle">
                     <i class="far fa-lightbulb"></i>
                     思い出したもの
@@ -143,7 +143,6 @@
                     {{ list.text }}
                     </li>
                     <!-- {{ resultLists }} -->
-                </ol>
             </div>
 
             <div class="replayBtn">

@@ -2,6 +2,7 @@
   <div id="app">
     <top-back />
     <vue-header />
+    <move-to-top />
     <transition mode="out-in">
     <router-view />
     </transition>

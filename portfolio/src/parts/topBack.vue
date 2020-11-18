@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 export default {
     name: 'topBack',
     data() {
@@ -38,7 +37,7 @@ export default {
             })
         },
         scrollWindow() {
-            const top = 300
+            const top = 1000
             this.scroll = window.scrollY
             if(top <= this.scroll) {
                 this.buttonHide = true

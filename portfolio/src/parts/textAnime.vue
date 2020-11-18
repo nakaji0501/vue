@@ -14,16 +14,13 @@
 export default {
     data() {
       return {
-        text: 'これはテスト文章なのであとで変更'
+        text: 'Wellcom to VueFolio !'
       }
     }
 }
 </script>
 
 <style scoped>
-.text {
-  width: 300px;
-}
 @keyframes text-in {
   0% {
     transform: translate(0, -20px);
@@ -31,6 +28,7 @@ export default {
   }
 }
 .text-anim {
+  line-height: 3rem;
   display: inline-block;
   min-width: 0.3em;
   font-size: 2rem;

@@ -63,7 +63,6 @@ export default {
   },
   data() {
     return {
-      isActive: false,
       anime: true,
       autoplay: true,
       lists: [
@@ -118,7 +117,7 @@ export default {
 .text {
   font-size: 20px;
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

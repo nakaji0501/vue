@@ -36,14 +36,14 @@
           </div>
 
           <div class="about_text-icon">
-            <font-awesome-icon :icon="['fas', 'map-marker-alt']" size='2x' 
+            <font-awesome-icon :icon="['fas', 'map-marker-alt']" size='2x'
             class="prof" />
             <div class="about_text">
               <p>1988年 10月 生まれ</p>
               <p>愛知県出身 在住</p>
               <p>2020年5月から独学でプログラミングを学習中。</p>
               <p>フロントエンド(開発)への転職を目指しています。</p>
-              <p>工作・DIYなど作ることが好きで「面白そう＋スキルになる」と思い始めたプログラミングに今ではハマっています。</p>
+              <p>工作・DIYなど作ることが好きで「面白そう＋役に立ちたい」と思い始めたプログラミングに今ではハマっています。</p>
             </div>
           </div>
 
@@ -160,7 +160,7 @@
             <h3>発想力</h3>
             </div>
             <p>枠にとらわれない自由な発想が得意です。</p>
-            <p>web制作でアピール出来るポイントをかくweb制作でアピール出来るポイントをかくweb制作でアピール出来るポイントをかく</p>
+            <p>人とは違うことが好きだったために自分ならではのオリジナルにこだわりを持っています。<br>そこで培った発想力はWEB制作・開発で活かせると思います。</p>
           </div>
 
           <div class="appeal_content">
@@ -168,17 +168,18 @@
               <font-awesome-icon :icon="['fas', 'external-link-alt']" />
             <h3>改善力</h3>
             </div>
-            <p>問題点を見つける観察力とそれらを良くする改善力には自信があります。</p>
-            <p>Web制作ではより良いデザイン・レイアウト・機能を追求します。</p>
+            <p>問題点を見つける観察力と改善力には自信があります。</p>
+            <p>仕事もプライベートも常に問題意識を持ちながらもっと良くなる方法を模索しています。<br>これまで仕事で13年間改善活動に積極的に取り組み得た知識はIT業界でも応用が効くはずです。</p>
           </div>
 
           <div class="appeal_content">
             <div class="appeal_subtitle">
-              <font-awesome-icon :icon="['fas', 'code']" />
-            <h3>地道にコツコツ</h3>
+              <font-awesome-icon :icon="['fas', 'hand-rock']" />
+            <h3>真面目</h3>
             </div>
-            <p>ここに本文です。ここに本文です。ここに本文です。</p>
-            <p>ここに本文です。ここに本文です。ここに本文です。</p>
+            <p>真面目で責任感が強い性格です。</p>
+            <p>与えられた業務は最後までしっかりと遂行します。<br>
+            </p>
           </div>
         </div>
       </div>
@@ -252,8 +253,10 @@ export default {
   display: flex;
 }
 .about_name {
+  font-size: 2rem;
   margin-bottom: 32px;
   margin-left: 24px;
+  align-items: flex-start;
 }
 .about_text-icon {
   display: flex;
@@ -273,10 +276,22 @@ export default {
 }
 
 /* .about-media- */
-@media (max-width: 670px){
+@media (max-width: 768px){
 .about_contents {
+  width: 90%;
+}
+.about_contents,
+.about_name-icon,
+.about_text-icon
+{
   flex-direction: column;
   align-items: center;
+}
+.about_name,
+.about_text
+{
+  margin-top: 16px;
+  margin-left: 0;
 }
 .about_inner {
   margin-top: 40px;
@@ -354,9 +369,6 @@ export default {
 
 /* .service-media- */
 @media (max-width: 670px){
-.service {
-  padding: 0;
-}
 .service_contents {
   flex-wrap: wrap;
   width: 90%;

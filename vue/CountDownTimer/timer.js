@@ -24,8 +24,8 @@ var app = new Vue ({
         thema: '',
         gamePage: false,
         result: false,
-        min: 0,
-        sec: 10,
+        min: 1,
+        sec: 0,
         msec: 0,
         timerOn: false,
         timerOn: null,
@@ -41,8 +41,8 @@ var app = new Vue ({
             this.gamePage = false;
             this.lists = '';
             this.timerOn = false;
-            this.sec = 10;
-            this.msec = 0;
+            this.timerReset();
+            this.moveToTop();
         },
         textAdd: function() {
             var text = this.$refs.text
@@ -92,21 +92,37 @@ var app = new Vue ({
                 buttons: false,
               }
               swal(options);
-              this.sec = 10;
               this.timerOn = false;
               this.result = true;
+              this.timerReset();
+              this.moveToTop();
             },
-
         reset: function() {
             this.resetOn = false;
-            this.sec = 10;
-            this.msec = 0;
+            this.timerReset();
         },
-
         resultReset: function() {
             this.result = false;
             this.gamePage = false;
             this.lists = [];
+            this.thema = '';
+            this.moveToTop();
+        },
+        timerReset: function() {
+            this.min = 1;
+            this.sec = 0;
+            this.msec = 0;
+        },
+        moveToTop() {
+            const duration = 1;  // 移動速度（0.001秒で終了）
+            const interval = 25;    // 0.025秒ごとに移動
+            const step = -window.scrollY / Math.ceil(duration / interval); // 1回に移動する距離
+            const timer = setInterval(() => {
+                window.scrollBy(0, step);   // スクロール位置を移動
+                if(window.scrollY <= 0) {
+                    clearInterval(timer);
+                }
+            }, interval);
         },
         // resultLists: function() {
         //     this.lists = listsStorage.fetch();

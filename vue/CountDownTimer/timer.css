@@ -25,8 +25,8 @@ body {
 .addThema input {
     display: block;
     margin: 24px auto;
-    max-width: 600px;
-    width: 100%;
+    max-width: 590px;
+    width: 90%;
     height: 40px;
     font-size: 1.5rem;
     border: 3px solid orange;
@@ -107,18 +107,25 @@ line-height: 80px;
 box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
 border-bottom: none;
 }
+.backBtn {
+    width: 85px;
+}
 .backBtn i {
     margin-right: 4px;
 }
 .backBtn button {
     font-size: 1rem;
     padding: 4px 12px;
+    cursor: pointer;
 }
 .textContent {
     padding: 20px;
 }
 .addText {
     margin-bottom: 16px;
+}
+.addText h3 span {
+    color: orange;
 }
 .addText p {
     margin-bottom: 24px;
@@ -138,6 +145,14 @@ border-bottom: none;
     font-weight: bold;
     color: red;
 }
+.textList {
+    width: 100%;
+}
+@media (min-width: 420px) {
+    .textList {
+        min-width: 110%;
+    }
+}
 .textList ol {
     margin-top: 24px;
 }
@@ -148,13 +163,13 @@ border-bottom: none;
     overflow-wrap: break-word;
 }
 .listTitle {
+    width: 80%;
     position: relative;
     padding: 0.6em;
     background: -webkit-repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
     background: repeating-linear-gradient(-45deg, #fff5df, #fff5df 4px,#ffe4b1 3px, #ffe4b1 8px);
     border-radius: 7px;
     margin-bottom: 24px;
-    width: 90%;
     font-weight: bold;
     text-align: center;
 
@@ -233,6 +248,7 @@ border-bottom: none;
     text-align: center;
     font-size: 1.3rem;
     cursor: pointer;
+    margin: 40px;
 }
 .replay {
     position: relative;

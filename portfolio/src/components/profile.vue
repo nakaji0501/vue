@@ -174,7 +174,8 @@ export default {
             books: [
                 { name: '確かな力が身につくJavaScript「超」入門' },
                 { name: 'ブレイクスルー JavaScript' },
-                { name: '基礎から学ぶ Vue.js'},
+                { name: '基礎から学ぶ Vue.js' },
+                { name: 'JavaScript本格入門' },
             ],
             skills: [
                 { id: '1', name: 'HTML5', prefix: 'fab', icon: 'html5', size: '2x' },
@@ -184,7 +185,8 @@ export default {
                 { id: '5', name: 'PHP', prefix: 'fab', icon: 'php', size: '2x' },
             ],
             business: [
-                { date: '2020.08.05', title: 'CMSサイトのコーディング・修正', language: 'HTML,CSS' },
+                { date: '2020.08.05', title: 'HTML,CSSコーディング・修正', language: 'HTML,CSS' },
+                { date: '2020.10.28', title: 'HTML,CSSコーディング・修正', language: 'HTML,CSS' },
             ],
         }
     }
@@ -199,7 +201,7 @@ export default {
 .centerLine span {
     display: block;
     width: 1px;
-    height: 880px;
+    height: 1080px;
     background-color: #333;
     margin: 0 auto;
 }
@@ -213,10 +215,11 @@ export default {
 }
 .parallax-wrapper {
     background-color: #fff;
-    padding-bottom: 60px;
+    height: 1300px;
+    /* padding-bottom: 160px; */
 }
 .parallax-bg {
-    height: 500px;
+    height: 550px;
     width: 100%;
 }
 .parallax-bg::after {
@@ -289,7 +292,7 @@ export default {
 }
 .skill {
     position: absolute;
-    top: 38%;
+    top: 33%;
     right: 52%;
 }
 .skill_list {
@@ -306,7 +309,7 @@ export default {
 }
 .output {
     position: absolute;
-    top: 70%;
+    bottom: 25%;
     left: 48%;
     text-align: center;
 }
@@ -317,7 +320,7 @@ export default {
 }
 .business {
     position: absolute;
-    top: 85%;
+    bottom: 6%;
     right: 52%;
 }
 .business li {
