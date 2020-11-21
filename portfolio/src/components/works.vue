@@ -39,9 +39,12 @@
                 </div>
             </div>
         </div>
-        <div class="space"></div>
 
-        <div class="contact_button">
+        <div class="space">
+            <p style="color: #fff; transform: translateY(-2rem);">恥ずかしながら現在スキル不足による表示の不具合があります。</p>
+        </div>
+
+        <div class="contactBtn-position">
         <contact-button />
       </div>
     </div>
@@ -59,17 +62,29 @@ export default {
         return {
             activeToggle: null,
             toggleButton: 'open',
-            // 'is-active': true,
             lists: [
                 // {
                 //     id: '',
-                //     date: '',
-                //     img: '',
+                //     date: '[制作日]',
+                //     name: '',
+                //     img: 'require()',
                 //     text: '',
                 //     point1: '',
+                //     point2: '',
                 //     language: '',
                 //     url: '',
                 // },
+                {
+                    id: '7',
+                    date: '[制作日]:2020.11.08',
+                    name: 'カウントダウンタイマーゲーム(Vue.js)',
+                    img: require('@/assets/image/cdtGame.png'),
+                    text: '制限時間内に思い出す作業を繰り返す脳活ゲーム',
+                    point1: '主な機能は「カウンドダウンタイマー」と「ToDo]です。',
+                    point2: '　ゲーム自体はシンプルですがVue.jsの基礎が詰まっていて基礎練習にぴったりでした。',
+                    language: 'Vue.js,html,css',
+                    url: 'http://nakaji-junk.com/CountDownTimer/',
+                },
                 {
                 id: '6',
                 date: '[制作日]:2020.08.20',
@@ -88,7 +103,7 @@ export default {
                 text: 'JavaScriptの理解を深めるために制作',
                 point1: 'JSONデータの取得や表示、条件別の画面表示などを学習',
                 point2: ' 検索機能やカートに入れるなどのECサイトの機能を実装',
-                language: 'html,css,Javascript',
+                language: 'html,css,Javascript,Sass',
                 url: 'https://nakaji-junk.com/ninja'
                 },
                 {
@@ -139,14 +154,13 @@ export default {
     },
     methods: {
         accordionToggle: function(index) {
-            if(this.activeToggle === index)　{
+            if(this.activeToggle === index) {
                 this.activeToggle = null;
                 this.toggleButton = 'open'
             } else {
                 this.activeToggle = index;
                 this.toggleButton = 'close'
             }
-        console.log(index);
         }
     }
 }
@@ -217,9 +231,11 @@ a {
     background-color: #333;
     transform: translateY(50%);
 }
-.contact_button {
+.contactBtn-position {
     position: relative;
     z-index: 100;
+    width: 280px;
+    margin: 0 auto;
 }
 @media (max-width: 670px) {
 .works_contents {

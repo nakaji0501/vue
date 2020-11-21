@@ -16,7 +16,7 @@ export default {
       return {
         text: 'Wellcom to VueFolio !'
       }
-    }
+    },
 }
 </script>
 

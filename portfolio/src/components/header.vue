@@ -20,8 +20,6 @@
       v-for="(item, index) in lists"
       :key="index"
       class="item"
-      @click="textAnime"
-
       >
       <router-link
       :to=item.path
@@ -72,14 +70,9 @@ export default {
         id: 2, text: 'Profileページです。', subText: '私のプログラミング学習の経過や学習している言語などをご紹介します。' },
         { title: 'works', path: '/works', prefix: 'fas', icon: 'file-code', size: '2x',
         id: 3, text: 'Serviceページです。', subText: '過去の制作物をご紹介します。'},
-        { title: 'contact', path: '/contact', prefix: 'far', icon: 'envelope', size: '2x',
+        { title: 'contact', path: '/contactForm', prefix: 'far', icon: 'envelope', size: '2x',
         id: 4, text: 'contactページです。', subText: 'お気軽にお問い合わせください。' },
       ],
-    }
-  },
-  methods: {
-    textAnime: function() {
-      
     }
   },
 }

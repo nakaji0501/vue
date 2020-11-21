@@ -1,35 +1,35 @@
 <template>
-    <div class="contactButton">
-        <a href="" class="btn btn--orange btn-c">
+    <router-link
+    :to="path">
+    <div
+    class="contactButton">
+        <a class="btn">
             お問い合わせはこちら
         </a>
     </div>
+    </router-link>
 </template>
 
 <script>
 export default {
-    name: 'contactButton'
+  data() {
+    return {
+      name: 'contactButton',
+      path: '/contactForm',
+    }
+  }
 }
 </script>
 
 <style scoped>
-a.btn--orange {
+.btn {
   color: #fff;
   background-color: rgb(11, 71, 139);
-}
-
-a.btn--orange:hover {
-  color: #fff;
-  background: #2aafe4;
-}
-
-a.btn-c {
-  position: relative;
   padding: 1.5rem 2rem 1.5rem 2rem;
 }
 
-a.btn-c i.fa {
-  margin-right: 1rem;
+.btn:hover {
+  color: #fff;
+  background: #2aafe4;
 }
-
 </style>

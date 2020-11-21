@@ -78,7 +78,7 @@
                     </ul>
                 </div>
                 <!-- v-forでiconが呼び出せない。fab→fasになる -->
-                <ul class="list">
+                <!-- <ul class="list">
                     <li
                     v-for="skill in skills"
                     :key="skill.id"
@@ -93,7 +93,7 @@
                         />
                         </p>
                     </li>
-                </ul>
+                </ul> -->
                 <!-- /v-forでiconが呼び出せない。fab→fasになる -->
 
                 <next-button
@@ -104,13 +104,13 @@
             <div class="output c-width">
                 <p v-once
                 class="subTitle">OUTPUT</p>
-                <a href="">Qiita</a>
+                <a style="text-decoration: line-through">Qiita</a>
                 <a href="@nakaji-junk">Twitter</a>
             </div>
 
             <div class="business c-width">
                 <p v-once
-                class="subTitle">BUSINESS</p>
+                class="subTitle">BUSINESS<br>-online-</p>
                 <ul v-for="work in business"
                 :key="work.date"
                 >
@@ -159,11 +159,13 @@ export default {
             page: 'profile',
             name: '中島拓海',
             furikana: 'Nakajima Takumi',
+            fab: '',
+            icon: '',
             status: {
                 old: '32',
                 from: '愛知県',
-                hobby: 'コーヒー, 旅行, スノボー',
-                strong: '発想, 改善',
+                hobby: 'コーヒー, 旅行, スノボー, バスケ',
+                strong: '臨機応変に対応すること, 工作, DIY',
                 qualifications: 'MOS Excel 2010 Expert',
             },
             studyList: [
@@ -176,6 +178,7 @@ export default {
                 { name: 'ブレイクスルー JavaScript' },
                 { name: '基礎から学ぶ Vue.js' },
                 { name: 'JavaScript本格入門' },
+                { name: 'いちばんやさしいGit&GitHubの教本' },
             ],
             skills: [
                 { id: '1', name: 'HTML5', prefix: 'fab', icon: 'html5', size: '2x' },

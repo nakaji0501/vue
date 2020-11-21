@@ -72,7 +72,8 @@
       <div class="works_contents">
 
         <div class="works_image">
-          <img src="../assets/image/webservice.png" alt="">
+          <a href=""></a>
+          <img src="../assets/image/cdtGame.png" alt="">
         </div>
 
       </div>
@@ -174,11 +175,11 @@
 
           <div class="appeal_content">
             <div class="appeal_subtitle">
-              <font-awesome-icon :icon="['fas', 'hand-rock']" />
-            <h3>真面目</h3>
+              <font-awesome-icon :icon="['fas', 'running']" />
+            <h3>自走力</h3>
             </div>
-            <p>真面目で責任感が強い性格です。</p>
-            <p>与えられた業務は最後までしっかりと遂行します。<br>
+            <p>主体的に考え積極的に挑戦する熱意があります。</p>
+            <p>自ら問い、調べ、考え、試し、検討することで解決することを前提に職務に当たります。<br>また貪欲に知識を探求しより高いスキルを身につけことに全力で挑み続けています。
             </p>
           </div>
         </div>
@@ -276,6 +277,17 @@ export default {
 }
 
 /* .about-media- */
+@media (max-width: 976px){
+.about_contents {
+  width: 80%;
+}
+.about_image {
+  flex-basis: 40%;
+}
+.about_inner {
+  flex-basis: 60%;
+}
+}
 @media (max-width: 768px){
 .about_contents {
   width: 90%;
@@ -304,10 +316,10 @@ export default {
   height: 400px;
   margin: 0 auto;
   border: 2px solid black;
+  overflow-y: auto;
 }
 .works_image img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 .works_deteailBtn {
@@ -368,7 +380,7 @@ export default {
 }
 
 /* .service-media- */
-@media (max-width: 670px){
+@media (max-width: 976px){
 .service_contents {
   flex-wrap: wrap;
   width: 90%;
@@ -394,7 +406,7 @@ export default {
   margin: 10vh auto;
 }
 .appeal_wrapper {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .appeal_title p {
@@ -405,7 +417,7 @@ export default {
   justify-content: space-between;
 }
 .appeal_content {
-  flex-basis: 25%;
+  flex-basis: 30%;
   background-color: lightgray;
   padding:64px 16px 40px 16px;
   clip-path: polygon(0 100%, 0 10%, 100% 0, 100% 90%);
@@ -424,7 +436,7 @@ export default {
   padding: 0 16px;
 }
 /* .appeal-media- */
-@media (max-width: 670px) {
+@media (max-width: 976px) {
 .appeal_wrapper {
   width: 90%;
 }
@@ -450,7 +462,7 @@ span {
   top: 0;
   left: 50%;
   width: 2px;
-  height: 120%;
+  height: 100%;
   background: black;
 }
 </style>

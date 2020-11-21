@@ -2,7 +2,6 @@
   <div id="app">
     <top-back />
     <vue-header />
-    <move-to-top />
     <transition mode="out-in">
     <router-view />
     </transition>
@@ -26,6 +25,9 @@ export default {
 </script>
 
 <style>
+@import './assets/css/reset.css';
+@import './assets/css/style.css';
+
 #app {
   text-align: center;
 }
