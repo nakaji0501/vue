@@ -33,7 +33,7 @@
                             <p>・{{ item.text }} </p>
                             <p>・{{ item.point1 }}<br>{{ item.point2 }}<br>{{ item.point3 }}</p>
                             <p>・{{ item.language }}</p>
-                            <a href="item.url">・リンク先へ</a>
+                            <!-- <a @click="getUrl()">・リンク先へ</a> -->
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="space">
-            <p style="color: #fff; transform: translateY(-2rem);">恥ずかしながら現在スキル不足による表示の不具合があります。</p>
+            <p style="color: #fff; transform: translateY(-2rem);">現在調整中により表示の不具合があります。</p>
         </div>
 
         <div class="contactBtn-position">
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import contactButton from '../parts/contactButton'
+import contactButton from '../components/contactButton'
 
 export default {
     name: 'works',
@@ -75,15 +75,15 @@ export default {
                 //     url: '',
                 // },
                 {
-                    id: '7',
-                    date: '[制作日]:2020.11.08',
-                    name: 'カウントダウンタイマーゲーム(Vue.js)',
-                    img: require('@/assets/image/cdtGame.png'),
-                    text: '制限時間内に思い出す作業を繰り返す脳活ゲーム',
-                    point1: '主な機能は「カウンドダウンタイマー」と「ToDo]です。',
-                    point2: '　ゲーム自体はシンプルですがVue.jsの基礎が詰まっていて基礎練習にぴったりでした。',
-                    language: 'Vue.js,html,css',
-                    url: 'http://nakaji-junk.com/CountDownTimer/',
+                id: '7',
+                date: '[制作日]:2020.11.08',
+                name: 'カウントダウンタイマーゲーム(Vue.js)',
+                img: require('@/assets/image/cdtGame.png'),
+                text: '制限時間内に思い出す作業を繰り返す脳活ゲーム',
+                point1: '主な機能は「カウンドダウンタイマー」と「ToDo]です。',
+                point2: '　ゲーム自体はシンプルですがVue.jsの基礎が詰まっていて基礎練習にぴったりでした。',
+                language: 'Vue.js,html,css',
+                url: 'http://nakaji-junk.com/CountDownTimer/',
                 },
                 {
                 id: '6',
@@ -161,6 +161,9 @@ export default {
                 this.activeToggle = index;
                 this.toggleButton = 'close'
             }
+        },
+        getUrl: function() {
+            location.href="http://nakaji-junk.com/CountDownTimer/"
         }
     }
 }
@@ -198,6 +201,8 @@ export default {
 .works_contents h3 {
     width: 90%;
     margin: 0 auto;
+    color: darkblue;
+    font-size: 1.2rem;
 }
 p {
     width: 80%;
@@ -220,11 +225,21 @@ a {
 .works_img img {
     width: 100%;
 }
+.accordion {
+    border-top: 1px solid #333;
+}
 .accordion-trigger {
     margin: 16px 0;
+    border-style: dashed;
+    padding: 8px;
+    border-radius: 4px;
 }
 .accordion-body p {
     max-width: 90%;
+}
+.accordion-body a {
+    color: blue;
+    cursor: pointer;
 }
 .space {
     height: 200px;

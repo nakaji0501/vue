@@ -7,6 +7,7 @@
 
     <div class="mainImage">
     </div>
+
     <div class="text">
       <text-anime v-if="anime" />
     </div>
@@ -50,8 +51,8 @@
 </template>
 
 <script>
-import TextAnime from '../parts/textAnime'
-import moreButton from '../parts/moreButton'
+import TextAnime from '../components/textAnime'
+import moreButton from '../components/moreButton'
 
 export default {
   name: 'vueHeader',

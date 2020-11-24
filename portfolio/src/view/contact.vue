@@ -17,10 +17,10 @@
 
     </div>
 
-</template>
+</template>j
 
 <script>
-import contactButton from '../parts/contactButton'
+import contactButton from '../components/contactButton'
 
 export default {
     name: 'contact',

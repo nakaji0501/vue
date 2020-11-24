@@ -1,10 +1,10 @@
-import Vue from 'vue/dist/vue.esm.js'
+import Vue from 'vue'
 import Router from 'vue-router'
-import top from '../components/top'
-import profile from '../components/profile'
-import works from '../components/works'
-import contact from '../components/contact'
-import contactForm from '../components/contactForm'
+import top from '../view/top'
+import profile from '../view/profile'
+import works from '../view/works'
+import contact from '../view/contact'
+import contactForm from '../view/contactForm'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
     if (savedPosition) {
       return savedPosition
     } else {
-      return {x: 0, y: 160}
+      return {x: 0, y: 0}
     }
   },
   routes: [

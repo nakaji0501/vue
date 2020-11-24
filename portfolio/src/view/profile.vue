@@ -19,7 +19,14 @@
                 <a>趣味: {{ status.hobby }}</a>
                 <a>得意: {{ status.strong }}</a>
                 <a>資格: {{ status.qualifications }}</a>
+
+            <!-- <next-button
+            text="履歴書・職務経歴書を見る"
+            class="nextBtn"
+            @click="getUrl()" /> -->
+
             </div>
+
 
             <div class="study_map c-width">
                 <p v-once
@@ -85,7 +92,7 @@
                     class="item">
                         <p>
                         <font-awesome-icon
-                        :prefix="fab"
+                        :prefix="skill.prefix"
                         :icon="skill.icon"
                         :size="skill.size"
                         class="faIcon"
@@ -96,16 +103,13 @@
                 </ul> -->
                 <!-- /v-forでiconが呼び出せない。fab→fasになる -->
 
-                <next-button
-                text="私にできること"
-                class="nextBtn" />
             </div>
 
             <div class="output c-width">
                 <p v-once
                 class="subTitle">OUTPUT</p>
                 <a style="text-decoration: line-through">Qiita</a>
-                <a href="@nakaji-junk">Twitter</a>
+                <a href="https://twitter.com/nakaji_junk">Twitter</a>
             </div>
 
             <div class="business c-width">
@@ -147,7 +151,7 @@
 </template>
 
 <script>
-import nextButton from '../parts/nextButton'
+import nextButton from '../components/nextButton'
 
 export default {
     name: 'profile',
@@ -192,7 +196,12 @@ export default {
                 { date: '2020.10.28', title: 'HTML,CSSコーディング・修正', language: 'HTML,CSS' },
             ],
         }
-    }
+    },
+    // methods: {
+    //     getUrl: function() {
+    //         location.href="http://nakaji-junk.com/rirekisyo/"
+    //     }
+    // }
 }
 </script>
 
@@ -295,7 +304,7 @@ export default {
 }
 .skill {
     position: absolute;
-    top: 33%;
+    top: 40%;
     right: 52%;
 }
 .skill_list {

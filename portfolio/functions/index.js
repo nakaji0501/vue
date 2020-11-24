@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
 const adminEmail = functions.config().admin.email;
+const cors = require('cors')({origin: true});
 
 // 送信に使用するメールサーバーの設定
 const mailTransport = nodemailer.createTransport({
@@ -15,7 +16,7 @@ const mailTransport = nodemailer.createTransport({
 
 // 管理者用のメールテンプレート
 const adminContents = data => {
-  return `以下内容でホームページよりお問い合わせを受けました。
+  return `Vuefolioからご連絡いただきました
 
 お名前：
 ${data.name}
@@ -28,12 +29,14 @@ ${data.contents}
 `;
 };
 
+// cors(data, context, () => {
 exports.sendMail = functions.https.onCall(async (data, context) => {
+
   // メール設定
   let adminMail = {
     from: gmailEmail,
     to: adminEmail,
-    subject: "ホームページお問い合わせ",
+    subject: "Vuefolioから連絡",
     text: adminContents(data)
   };
 
@@ -44,5 +47,5 @@ exports.sendMail = functions.https.onCall(async (data, context) => {
     console.error(`send failed. ${e}`);
     throw new functions.https.HttpsError('internal', 'send failed');
    }
-  }
+// });
 });

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+    <div id="app">
     <top-back />
     <vue-header />
     <transition mode="out-in">
@@ -7,12 +7,19 @@
     </transition>
     <vue-footer />
   </div>
+
+  <!-- <v-app>
+    <v-main>
+      <ContactForm/>
+    </v-main>
+  </v-app> -->
 </template>
 
 <script>
-import vueHeader from './components/header'
-import vueFooter from './components/footer'
-import topBack from './parts/topBack'
+import vueHeader from './view/header'
+import vueFooter from './view/footer'
+import topBack from './components/topBack'
+// import ContactForm from './components/ContactForm'
 
 export default {
   name: 'App',
@@ -20,6 +27,7 @@ export default {
     vueHeader,
     vueFooter,
     topBack,
+    // ContactForm
   },
 }
 </script>
@@ -27,7 +35,6 @@ export default {
 <style>
 @import './assets/css/reset.css';
 @import './assets/css/style.css';
-
 #app {
   text-align: center;
 }

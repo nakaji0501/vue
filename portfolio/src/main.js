@@ -1,8 +1,8 @@
-// import Vue from 'vue'
-import Vue from 'vue/dist/vue.esm.js'
-import App from './App'
+import Vue from 'vue'
+import App from './App.vue'
 import router from './router'
-import vuetify from './plugins/vuetify'
+import vuetify from './plugins/vuetify';
+
 
 // Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -34,17 +34,11 @@ library.add(faAddressCard, faTwitterSquare, faFileCode, faUser, faLightbulb, faE
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
+
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   vuetify,
-
-  components: {
-    App,
-  },
-
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

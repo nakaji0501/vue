@@ -72,9 +72,9 @@
       <div class="works_contents">
 
         <div class="works_image">
-          <a href=""></a>
           <img src="../assets/image/cdtGame.png" alt="">
         </div>
+          <a href="http://nakaji-junk.com/CountDownTimer/" target="_blank" rel="noopener noreferrer">リンク先へ</a>
 
       </div>
 
@@ -157,7 +157,7 @@
 
           <div class="appeal_content">
             <div class="appeal_subtitle">
-              <font-awesome-icon :icon="['fas', 'lightbulb']" />
+              <font-awesome-icon :icon="['fas', 'lightbulb']" size="2x" />
             <h3>発想力</h3>
             </div>
             <p>枠にとらわれない自由な発想が得意です。</p>
@@ -166,7 +166,7 @@
 
           <div class="appeal_content">
             <div class="appeal_subtitle">
-              <font-awesome-icon :icon="['fas', 'external-link-alt']" />
+              <font-awesome-icon :icon="['fas', 'external-link-alt']" size="2x" />
             <h3>改善力</h3>
             </div>
             <p>問題点を見つける観察力と改善力には自信があります。</p>
@@ -175,7 +175,7 @@
 
           <div class="appeal_content">
             <div class="appeal_subtitle">
-              <font-awesome-icon :icon="['fas', 'running']" />
+              <font-awesome-icon :icon="['fas', 'running']" size="2x" />
             <h3>自走力</h3>
             </div>
             <p>主体的に考え積極的に挑戦する熱意があります。</p>
@@ -196,8 +196,8 @@
 </template>
 
 <script>
-import contact from '../components/contact'
-import nextButton from '../parts/nextButton'
+import contact from '../view/contact'
+import nextButton from '../components/nextButton'
 
 export default {
   name: 'top',
@@ -313,7 +313,7 @@ export default {
 /* .works */
 .works_image {
   width: 50%;
-  height: 400px;
+  height: 450px;
   margin: 0 auto;
   border: 2px solid black;
   overflow-y: auto;
@@ -325,6 +325,12 @@ export default {
 .works_deteailBtn {
   margin-top: 24px;
   position: relative;
+}
+@media (max-width: 900px){
+  .works_image {
+    height: 320px;
+    width: 70%;
+  }
 }
 @media (max-width: 670px){
   .works_image {
@@ -381,6 +387,9 @@ export default {
 
 /* .service-media- */
 @media (max-width: 976px){
+.service {
+  padding: 24px;
+}
 .service_contents {
   flex-wrap: wrap;
   width: 90%;
@@ -428,7 +437,7 @@ export default {
   margin-bottom: 24px;
 }
 .appeal_content h3 {
-  font-size: 1.3em;
+  font-size: 2rem;
   margin-left: 8px;
 }
 .appeal_content p {
