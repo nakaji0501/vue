@@ -1,4 +1,3 @@
-
 <template>
     <div class="contactForm">
         <v-card>
@@ -38,8 +37,8 @@
         <v-snackbar
                 v-model="snackBar.show"
                 :color="snackBar.color"
-                bottom
-                right
+                top
+                center
                 :timeout="6000"
                 class="font-weight-bold"
         >

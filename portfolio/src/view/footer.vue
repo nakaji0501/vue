@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>© n.t.portfolio</p>
+            <p>© t.n.vuefolio</p>
         </div>
     </div>
 </template>

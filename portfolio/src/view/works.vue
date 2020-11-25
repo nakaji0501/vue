@@ -75,6 +75,17 @@ export default {
                 //     url: '',
                 // },
                 {
+                    id: '8',
+                    date: '[制作日]:2020.11.20',
+                    name: 'portfolio',
+                    img: require('@/assets/image/n-t-portfolio.png'),
+                    text: '私のポートフォリオサイトです',
+                    point1: 'Vue.jsの基礎練習を兼ねて制作しました。',
+                    point2: 'vue-cli,vue-router,vue-link,vuetifyを使用したSPAサイトです。Firebaseで公開しています。',
+                    language: 'html,css,JavaScript,Vue.js,',
+                    url: '',
+                },
+                {
                 id: '7',
                 date: '[制作日]:2020.11.08',
                 name: 'カウントダウンタイマーゲーム(Vue.js)',

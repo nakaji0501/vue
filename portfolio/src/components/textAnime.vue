@@ -14,7 +14,7 @@
 export default {
     data() {
       return {
-        text: 'Wellcom to VueFolio !'
+        text: 'Wellcome to Portfolio',
       }
     },
 }
@@ -28,10 +28,16 @@ export default {
   }
 }
 .text-anim {
-  line-height: 3rem;
+  line-height: 4rem;
   display: inline-block;
   min-width: 0.3em;
-  font-size: 2rem;
+  font-size: 4rem;
   animation: text-in .8s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards;
+}
+@media (max-width: 670px){
+  .text-anim {
+    line-height: 3rem;
+    font-size: 2rem;
+  }
 }
 </style>

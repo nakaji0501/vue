@@ -2,7 +2,7 @@
   <div class="vueHeader">
 
     <div class="title">
-      <h1>Port Folio</h1>
+      <h1>Vue Folio</h1>
     </div>
 
     <div class="mainImage">
