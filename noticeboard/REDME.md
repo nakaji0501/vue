@@ -2,10 +2,13 @@
 
 ## 開発環境
 
- Vue 
- Node
- Composer
- Laravel
+ macOS High Sierra version 10.13.6
+ Vue @vue/cli 4.5.9
+ Node v14.14.0
+ Composer 2.0.7
+ Laravel 2.3.0
+ PHP 7.1.33
+ Docker 19.03.13
 
 ### コンセプト
 
