@@ -4,10 +4,11 @@
 
  macOS High Sierra version 10.13.6
  Vue @vue/cli 4.5.9
+ npm 6.14.8
  Node v14.14.0
  Composer 2.0.7
  Laravel 2.3.0
- PHP 7.1.33
+ PHP 7.4.13
  Docker 19.03.13
 
 ### コンセプト
