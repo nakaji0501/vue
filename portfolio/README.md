@@ -1,24 +1,14 @@
 # vuefolio
 
-## Project setup
-```
-npm install
-```
+## used
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue.js, Vue CLI, vue-router, vue-link, vuetify,
+Firebase(Hosting, Functions), nodemailer
+FontAwesome,
+html, css, Javascript
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## used v-ディレクティブ
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+v-bind, v-cloak, v-for, v-if, v-on,
+v-once, v-show, v-text,
+transition,
