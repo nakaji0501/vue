@@ -10,6 +10,7 @@
  Laravel 2.3.0
  PHP 7.4.13
  Docker 19.03.13
+ mysql  Ver 8.0.22 for osx10.13 on x86_64 (Homebrew)
 
 ### コンセプト
 
