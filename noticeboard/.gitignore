@@ -1,4 +1,5 @@
-database
-install-composer.sh
 Dockerfile
 docker-compose.yml
+php.ini
+000-default.conf
+my.cnf
