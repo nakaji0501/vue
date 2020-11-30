@@ -50,5 +50,5 @@ class LoginController extends Controller
     $request->session()->regenerate();
 
     return response()->json();
-}ll
+}
 }
