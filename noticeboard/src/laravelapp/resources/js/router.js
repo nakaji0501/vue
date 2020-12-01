@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import PhotoList from '../pages/PhotoList.vue'
-import Login from '../pages/login.vue'
+import PhotoList from './pages/PhotoList.vue'
+import Login from './pages/Login.vue'
 
 Vue.use(VueRouter)
 

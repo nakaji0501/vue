@@ -7,7 +7,7 @@
 
         <main>
             <div class="container">
-                <router-view />
+            <RouterView />
             </div>
         </main>
 
