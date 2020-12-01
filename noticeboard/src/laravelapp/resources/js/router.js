@@ -5,6 +5,7 @@ import PhotoList from './pages/PhotoList.vue'
 import Login from './pages/Login.vue'
 
 import store from './store'
+import SystemError from './pages/errors/System.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,10 @@ const routes = [
                 next()
             }
         }
+    },
+    {
+        path: '/500',
+        component: SystemError
     },
 ]
 
