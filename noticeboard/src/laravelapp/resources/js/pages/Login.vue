@@ -20,7 +20,7 @@
       <form class="form" @submit.prevent="login">
 
         <div class="errors"
-        v-if="loginerros">
+        v-if="loginErrors">
             <ul v-if="loginErrors.email">
                 <li v-for="msg in loginErrors.email"
                 :key="msg">
@@ -103,6 +103,12 @@ export default {
   created() {
       this.clearError()
   },
+
+// ↓mapStateを使うか使わないかの記述
+// コンポーネントの算出プロパティとストアのステートをマッピングする関数
+// 算出プロパティが増えてくるなら使うと見やすいかも？
+// どちらでもいい。書き方の違い。
+
 //   computed: {
 //       apiStatus() {
 //           return this.$store.state.auth.apiStatus
