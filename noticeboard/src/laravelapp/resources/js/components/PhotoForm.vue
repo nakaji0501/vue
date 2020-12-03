@@ -6,7 +6,9 @@
             Submit a Photo
         </h2>
 
-        <form class="form">
+        <form class="form"
+        @submit.prevent="submit">
+
             <input type="file" class="form__item"
             @change="onFileChange">
 
@@ -35,7 +37,8 @@ export default {
     },
     data() {
         return {
-            preview: null
+            preview: null,
+            photo: null,
         }
     },
     methods: {
@@ -61,12 +64,23 @@ export default {
             }
 
             reader.readAsDataURL(event.target.files[0])
+            this.photo = event.target.files[0]
         },
 
         reset() {
             this.preview = ""
+            this.photo = null
             // this.$elはコンポーネントのDOM要素を表す
             this.$el.queryselector('input[type="file"]').value = null
+        },
+
+        async submit() {
+            const formData = new FormData()
+            formData.append('photo', this.photo)
+            const response = await axios.post('/api/photos', formData)
+
+            this.reset()
+            this.#emit('input', false)
         }
     }
 }
