@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     async register() {
-      await this.$store.dispatch('auth/register', this.registerFrom)
+      await this.$store.dispatch('auth/register', this.registerForm)
       if(this.apiStatus) {
         this.$router.push('/')
       }
