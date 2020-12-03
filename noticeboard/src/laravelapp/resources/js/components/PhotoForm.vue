@@ -6,8 +6,14 @@
             Submit a Photo
         </h2>
 
+        <div class="panel"
+        v-show="loading">
+            <Loader>Sending your photo ....</Loader>
+        </div>
+
         <form class="form"
-        @submit.prevent="submit">
+        @submit.prevent="submit"
+        v-show="! loading">
 
         <div class="errors"
         v-if="errors">
@@ -39,7 +45,12 @@
 
 <script>
 import { CREATED, UNPROCESSABLE_ENTITY } from '../util'
+import Loader from './Loader.vue'
+
 export default {
+    components: {
+        Loader,
+    },
     props: {
         value: {
             type: Boolean,
@@ -51,6 +62,7 @@ export default {
             preview: null,
             photo: null,
             errors: null,
+            loading,
         }
     },
     methods: {
@@ -87,9 +99,13 @@ export default {
         },
 
         async submit() {
+            this.loading = true
+
             const formData = new FormData()
             formData.append('photo', this.photo)
             const response = await axios.post('/api/photos', formData)
+
+            this.loading = false
 
             // バリデーションエラーは値のクリアやフォーム閉じるの前にfalseを返す
             if (response.status === UNPROCESSABLE_ENTITY) {
