@@ -41,10 +41,12 @@ export default {
     methods: {
         onFileChange(event) {
             if (event.target.files.length === 0) {
+                this.reset()
                 return false
             }
 
             if (! event.target.files[0].type.match('image.*')) {
+                this.reset()
                 return false
             }
 
@@ -60,6 +62,12 @@ export default {
 
             reader.readAsDataURL(event.target.files[0])
         },
+
+        reset() {
+            this.preview = ""
+            // this.$elはコンポーネントのDOM要素を表す
+            this.$el.queryselector('input[type="file"]').value = null
+        }
     }
 }
 </script>
