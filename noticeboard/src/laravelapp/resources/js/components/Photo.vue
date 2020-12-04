@@ -11,10 +11,19 @@
         >
 
         <div class="photo__controls">
+
             <button class="photo__action photo__action--like"
             title="Like Photo">
                 <i class="icon ion-md-heart"></i>12
             </button>
+
+            <a href="`/photos/${item.id}/download`"
+            class="photo__action"
+            title="Dowload photo"
+            @click.stop>
+                <i class="icon ion-md-arrow-round-down"></i>
+            </a>
+
         </div>
         </router-link>
     </div>
