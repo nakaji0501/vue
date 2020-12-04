@@ -62,7 +62,7 @@ export default {
             preview: null,
             photo: null,
             errors: null,
-            loading,
+            loading: false,
         }
     },
     methods: {
@@ -95,7 +95,7 @@ export default {
             this.preview = ""
             this.photo = null
             // this.$elはコンポーネントのDOM要素を表す
-            this.$el.queryselector('input[type="file"]').value = null
+            this.$el.querySelector('input[type="file"]').value = null
         },
 
         async submit() {
@@ -114,12 +114,17 @@ export default {
             }
 
             this.reset()
-            this.#emit('input', false)
+            this.$emit('input', false)
 
             if (response.status !== CREATED) {
                 this.$store.commit('error/setCode', response.status)
                 return false
             }
+
+            this.$store.commit('message/setContent', {
+                content: '写真が投稿されました！',
+                timeout: 6000
+            })
 
             this.$router.push('/photos/${response.data.id}')
         }

@@ -5,7 +5,7 @@
             <slot>Loading...</slot>
         </p>
 
-        <div class="loader__item loader__item--"></div>
+        <div class="loader__item loader__item--heart"></div>
 
     </div>
 </template>
