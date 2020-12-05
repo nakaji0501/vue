@@ -7,6 +7,8 @@ use Illuminate\Support\Arr;
 
 class Photo extends Model
 {
+    protected $perPage = 2;
+
     /** プライマリキーの型 */
     protected $keyType = 'string';
 
