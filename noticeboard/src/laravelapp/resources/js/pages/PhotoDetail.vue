@@ -28,6 +28,19 @@
                 <i class="icon ion-md-chatboxes"></i>Comments
             </h2>
 
+            <form class="form"
+            @submit.prevent="addComment">
+                <textarea class="form__item"
+                v-model="commentContent"></textarea>
+
+                <div class="form__button">
+                    <button class="button button--inverse" type="submit">
+                        submit comment
+                    </button>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </template>
@@ -45,7 +58,8 @@ export default {
     data() {
         return {
             photo: null,
-            fullWidth: false
+            fullWidth: false,
+            commentContent: '',
         }
     },
     methods: {
@@ -57,6 +71,12 @@ export default {
                 return false
             }
             this.photo = response.data
+        },
+        async addComment() {
+            const response = await axios.post(`/api/photos/${this.id}/comments`, {
+                content: this.comentContent
+            })
+            this.commentContent = ''
         }
     },
     watch: {
