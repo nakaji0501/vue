@@ -29,7 +29,9 @@
             </h2>
 
             <form class="form"
-            @submit.prevent="addComment">
+            @submit.prevent="addComment"
+            v-if="isLogin"
+            >
 
                 <div class="erros"
                 v-if="commentErrors">
@@ -106,6 +108,11 @@ export default {
                 return false
             }
         }
+    },
+    computed: {
+        isLogin() {
+            return this.$store.getters('auth/check')
+        },
     },
     watch: {
         $route: {
