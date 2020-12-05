@@ -13,8 +13,12 @@
 
         <div class="photo-detail__pane">
             <button class="button button--like"
-            title="Like photo">
-                <i class="icon ion-md-heart"></i>12
+            title="Like photo"
+            :class="{ 'button--liked': photo.liked_by_user }"
+            @click="onLikeClick"
+            >
+                <i class="icon ion-md-heart"></i>
+                {{ photo.likes_count }}
             </button>
 
             <a :href="`/photos/${photo.id}/download`"
@@ -132,6 +136,40 @@ export default {
                 response.data,
                 ...this.photo.comments
             ]
+        },
+        onLikeClick () {
+            if (! this.isLogin) {
+                alert('いいね機能を使うにはログインしてください。')
+                return false
+            }
+
+            if (this.photo.liked_by_user) {
+                this.unlike()
+            } else {
+                this.like()
+            }
+        },
+        async like () {
+            const response = await axios.put(`/api/photos/${this.id}/like`)
+
+            if (response.status !== OK) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
+            this.photo.likes_count = this.photo.likes_count + 1
+            this.photo.liked_by_user = true
+        },
+        async unlike () {
+            const response = await axios.delete(`/api/photos/${this.id}/like`)
+
+            if (response.status !== OK) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
+
+            this.photo.likes_count = this.photo.likes_count - 1
+            this.photo.liked_by_user = false
         }
     },
     computed: {
