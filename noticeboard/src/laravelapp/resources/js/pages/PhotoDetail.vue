@@ -30,6 +30,19 @@
 
             <form class="form"
             @submit.prevent="addComment">
+
+                <div class="erros"
+                v-if="commentErrors">
+                    <ul v-if="commentErrors.content">
+                        <li
+                        v-for="msg in commentErrors.content"
+                        :key="msg"
+                        >
+                        {{ msg }}
+                        </li>
+                    </ul>
+                </div>
+
                 <textarea class="form__item"
                 v-model="commentContent"></textarea>
 
@@ -46,7 +59,7 @@
 </template>
 
 <script>
-import { OK } from '../util'
+import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
 
 export default {
     props: {
@@ -60,6 +73,7 @@ export default {
             photo: null,
             fullWidth: false,
             commentContent: '',
+            commentErrors: null,
         }
     },
     methods: {
@@ -76,7 +90,21 @@ export default {
             const response = await axios.post(`/api/photos/${this.id}/comments`, {
                 content: this.comentContent
             })
+
+            // バリデーションエラー
+            if (response.status === UNPROCESSABLE_ENTITY) {
+                this.commentErrors = response.data.errors
+                return false
+            }
+
             this.commentContent = ''
+            this.commentErrors = null
+
+            // その他のエラー
+            if (response.status !== CREATED) {
+                this.$store.commit('error/setCode', response.status)
+                return false
+            }
         }
     },
     watch: {
