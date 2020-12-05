@@ -9,20 +9,37 @@
             />
 
         </div>
+
+        <Pagination
+        :current-page="currentPage"
+        :last-page="lastPage"
+        />
+
     </div>
 </template>
 
 <script>
 import { OK } from '../util'
 import Photo from '../components/Photo.vue'
+import Pagination from '../components/Pagination.vue'
 
 export default {
+    props: {
+        page: {
+            type: Number,
+            required: false,
+            default: 1,
+        },
+    },
     components: {
         Photo,
+        Pagination,
     },
     data() {
         return {
             photos: [],
+            currentPage: 0,
+            lastPage: 0,
         }
     },
     methods: {
@@ -35,6 +52,8 @@ export default {
             }
 
             this.photos = response.data.data
+            this.currentPage = response.data.current_page
+            this.lastPage = response.data.last_page
         }
     },
     watch: {
