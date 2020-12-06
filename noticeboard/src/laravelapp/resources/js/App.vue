@@ -36,7 +36,7 @@ export default {
     },
     watch: {
         errorCode: {
-            handler(val) {
+            async handler(val) {
                 if (val === INTERNAL_SERVER_ERROR ) {
                     this.$router.push('/500')
                 } else if (val === UNAUTHORIZED) {
