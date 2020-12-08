@@ -2,7 +2,7 @@
     <div class="photo">
 
         <figure class="photo__wrapper">
-            <img class="photo__image" src="item.url" alt="`Photo by ${item.owner.name}`">
+            <img class="photo__image" :src="item.url" :alt="`Photo by ${item.owner.name}`">
         </figure>
 
         <router-link class="photo__overlay"
@@ -20,7 +20,7 @@
                 <i class="icon ion-md-heart"></i>12
             </button>
 
-            <a href="`/photos/${item.id}/download`"
+            <a :href="`/photos/${item.id}/download`"
             class="photo__action"
             title="Dowload photo"
             @click.stop>
