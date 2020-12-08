@@ -8,7 +8,7 @@
 
         <div class="panel"
         v-show="loading">
-            <Loader>Sending your photo ....</Loader>
+            <Loader>Sending your photo ...</Loader>
         </div>
 
         <form class="form"
@@ -20,7 +20,7 @@
             <ul v-if="errors.photo">
                 <li v-for="msg in errors.photo"
                 :key="msg">
-                {{ mag }}
+                {{ msg }}
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
 
             <output class="form__output"
             v-if="preview">
-                <img src="preview" alt="">
+                <img :src="preview" alt="">
             </output>
 
             <div class="form__button">

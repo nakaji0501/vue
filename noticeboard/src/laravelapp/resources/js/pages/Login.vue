@@ -108,6 +108,25 @@ export default {
       }
     }
   },
+  // ↓mapStateを使うか使わないかの記述
+  // コンポーネントの算出プロパティとストアのステートをマッピングする関数
+  // 算出プロパティが増えてくるなら使うと見やすいかも？
+  // どちらでもいい。書き方の違い。
+  //   computed: {
+  //       apiStatus() {
+  //           return this.$store.state.auth.apiStatus
+  //       },
+  //       loginErrors() {
+  //           return this.$store.state.auth.loginErrorMessages
+  //       }
+  //   },
+  computed: {
+    ...mapState({
+        apiStatus: state => state.auth.apiStatus,
+        loginErrors: state => state.auth.loginErrorMessages,
+        registerErrors: state => state.auth.registerErrorMessages,
+    })
+  },
   methods: {
     async register() {
       await this.$store.dispatch('auth/register', this.registerForm)
@@ -129,26 +148,5 @@ export default {
   created() {
       this.clearError()
   },
-
-// ↓mapStateを使うか使わないかの記述
-// コンポーネントの算出プロパティとストアのステートをマッピングする関数
-// 算出プロパティが増えてくるなら使うと見やすいかも？
-// どちらでもいい。書き方の違い。
-
-//   computed: {
-//       apiStatus() {
-//           return this.$store.state.auth.apiStatus
-//       },
-//       loginErrors() {
-//           return this.$store.state.auth.loginErrorMessages
-//       }
-//   },
-    computed: {
-        ...mapState({
-            apiStatus: state => state.auth.apiStatus,
-            loginErrors: state => state.auth.loginErrorMessages,
-            registerErrors: state => state.auth.registerErrorMessages,
-        })
-    }
 }
 </script>

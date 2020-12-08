@@ -19,6 +19,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $visible = [
+        'name',
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -36,8 +40,4 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Photo');
     }
-
-    protected $visible = [
-        'name',
-    ];
 }

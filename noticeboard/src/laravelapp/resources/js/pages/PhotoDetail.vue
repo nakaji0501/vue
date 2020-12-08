@@ -102,6 +102,11 @@ export default {
             commentErrors: null,
         }
     },
+    computed: {
+    isLogin() {
+        return this.$store.getters('auth/check')
+    },
+    },
     methods: {
         async fetchPhoto() {
             const response = await axios.get(`/api/photos/${this.id}`)
@@ -172,14 +177,9 @@ export default {
             this.photo.liked_by_user = false
         }
     },
-    computed: {
-        isLogin() {
-            return this.$store.getters('auth/check')
-        },
-    },
     watch: {
         $route: {
-            async handore() {
+            async handler() {
                 await this.fetchPhoto()
             },
             immediate: true

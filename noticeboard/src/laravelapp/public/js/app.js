@@ -3788,15 +3788,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "../../../../node_modules/vuex/dist/vuex.esm.js");
 
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 //
 //
@@ -3906,6 +3906,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
   },
+  // ↓mapStateを使うか使わないかの記述
+  // コンポーネントの算出プロパティとストアのステートをマッピングする関数
+  // 算出プロパティが増えてくるなら使うと見やすいかも？
+  // どちらでもいい。書き方の違い。
+  //   computed: {
+  //       apiStatus() {
+  //           return this.$store.state.auth.apiStatus
+  //       },
+  //       loginErrors() {
+  //           return this.$store.state.auth.loginErrorMessages
+  //       }
+  //   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    apiStatus: function apiStatus(state) {
+      return state.auth.apiStatus;
+    },
+    loginErrors: function loginErrors(state) {
+      return state.auth.loginErrorMessages;
+    },
+    registerErrors: function registerErrors(state) {
+      return state.auth.registerErrorMessages;
+    }
+  })),
   methods: {
     register: function register() {
       var _this = this;
@@ -3962,30 +3985,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     this.clearError();
-  },
-  // ↓mapStateを使うか使わないかの記述
-  // コンポーネントの算出プロパティとストアのステートをマッピングする関数
-  // 算出プロパティが増えてくるなら使うと見やすいかも？
-  // どちらでもいい。書き方の違い。
-  //   computed: {
-  //       apiStatus() {
-  //           return this.$store.state.auth.apiStatus
-  //       },
-  //       loginErrors() {
-  //           return this.$store.state.auth.loginErrorMessages
-  //       }
-  //   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
-    apiStatus: function apiStatus(state) {
-      return state.auth.apiStatus;
-    },
-    loginErrors: function loginErrors(state) {
-      return state.auth.loginErrorMessages;
-    },
-    registerErrors: function registerErrors(state) {
-      return state.auth.registerErrorMessages;
-    }
-  }))
+  }
 });
 
 /***/ }),
@@ -4121,6 +4121,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       commentContent: '',
       commentErrors: null
     };
+  },
+  computed: {
+    isLogin: function isLogin() {
+      return this.$store.getters('auth/check');
+    }
   },
   methods: {
     fetchPhoto: function fetchPhoto() {
@@ -4292,14 +4297,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  computed: {
-    isLogin: function isLogin() {
-      return this.$store.getters('auth/check');
-    }
-  },
   watch: {
     $route: {
-      handore: function handore() {
+      handler: function handler() {
         var _this5 = this;
 
         return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
@@ -4734,7 +4734,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('/api/photos');
+                return axios.get("/api/photos/?page=".concat(_this.page));
 
               case 2:
                 response = _context.sent;
@@ -6424,7 +6424,12 @@ var render = function() {
     "div",
     { staticClass: "photo" },
     [
-      _vm._m(0),
+      _c("figure", { staticClass: "photo__wrapper" }, [
+        _c("img", {
+          staticClass: "photo__image",
+          attrs: { src: _vm.item.url, alt: "Photo by " + _vm.item.owner.name }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "router-link",
@@ -6461,7 +6466,7 @@ var render = function() {
               {
                 staticClass: "photo__action",
                 attrs: {
-                  href: "`/photos/${item.id}/download`",
+                  href: "/photos/" + _vm.item.id + "/download",
                   title: "Dowload photo"
                 },
                 on: {
@@ -6483,19 +6488,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "photo__wrapper" }, [
-      _c("img", {
-        staticClass: "photo__image",
-        attrs: { src: "item.url", alt: "`Photo by ${item.owner.name}`" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -6548,7 +6541,7 @@ var render = function() {
           ],
           staticClass: "panel"
         },
-        [_c("Loader", [_vm._v("Sending your photo ....")])],
+        [_c("Loader", [_vm._v("Sending your photo ...")])],
         1
       ),
       _vm._v(" "),
@@ -6580,9 +6573,7 @@ var render = function() {
                       _vm._l(_vm.errors.photo, function(msg) {
                         return _c("li", { key: msg }, [
                           _vm._v(
-                            "\n            " +
-                              _vm._s(_vm.mag) +
-                              "\n            "
+                            "\n            " + _vm._s(msg) + "\n            "
                           )
                         ])
                       }),
@@ -6600,7 +6591,7 @@ var render = function() {
           _vm._v(" "),
           _vm.preview
             ? _c("output", { staticClass: "form__output" }, [
-                _c("img", { attrs: { src: "preview", alt: "" } })
+                _c("img", { attrs: { src: _vm.preview, alt: "" } })
               ])
             : _vm._e(),
           _vm._v(" "),
