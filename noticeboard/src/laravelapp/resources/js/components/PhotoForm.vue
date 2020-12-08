@@ -8,7 +8,7 @@
 
         <div class="panel"
         v-show="loading">
-            <Loader>Sending your photo ....</Loader>
+            <Loader>Sending your photo ...</Loader>
         </div>
 
         <form class="form"

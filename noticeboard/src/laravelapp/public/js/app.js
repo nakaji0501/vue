@@ -6206,7 +6206,7 @@ var render = function() {
           ],
           staticClass: "panel"
         },
-        [_c("Loader", [_vm._v("Sending your photo ....")])],
+        [_c("Loader", [_vm._v("Sending your photo ...")])],
         1
       ),
       _vm._v(" "),
